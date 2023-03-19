@@ -1,0 +1,61 @@
+<div [@hideLigne]="hideLigne" id="container">
+    <div id="background" [ngStyle]="{'background-color' : backgroundColor, 'border' : '2px solid ' + selectedColor}" *ngIf="type === 'Aliment'">
+        <mat-icon id="delete" (click)="deleteLigne()">delete</mat-icon>
+        <fa-icon id="icon" [ngStyle]="{'color' : backgroundColor,'top': randomPosition[0].top, 'left': randomPosition[0].left}" [icon]="selectedIcon"></fa-icon>
+        <fa-icon id="icon" [ngStyle]="{'color' : backgroundColor,'top': randomPosition[1].top, 'left': randomPosition[1].left}" [icon]="selectedIcon"></fa-icon>
+        <fa-icon id="icon" [ngStyle]="{'color' : backgroundColor,'top': randomPosition[2].top, 'left': randomPosition[2].left}" [icon]="selectedIcon"></fa-icon>
+        <fa-icon id="icon" [ngStyle]="{'color' : backgroundColor,'top': randomPosition[3].top, 'left': randomPosition[3].left}" [icon]="selectedIcon"></fa-icon>
+    
+        <div class="top">
+            <span class="title" *ngIf="type === 'Aliment'">{{data.aliment}}</span>
+            <div style="display: flex;">
+                <input *ngIf="type === 'Aliment'" style="justify-content: flex-end;" (blur)="updateLigne($event)" matInput class="subtitle" [value]="data.quantity" autocomplete="off">
+                <span class="subtitle" *ngIf="type === 'Aliment'">g</span>
+            </div>
+            
+        </div>
+        <div class="inside" *ngIf="type === 'Aliment'">
+            <div class="info">
+                <span>Calories: </span>
+                <span class="subtitle" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">{{data.calories | number:'1.0-0'}}kCal</span>
+            </div>
+            <div class="info">
+                <span>Protéines: </span>
+                <span class="subtitle" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">{{data.proteines | number:'1.0-0'}}g</span>
+            </div>
+            <div class="info">
+                <span>Lipides: </span>
+                <span class="subtitle" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">{{data.lipides | number:'1.0-0'}}g</span>
+            </div>
+            <div class="info">
+                <span>Fibres: </span>
+                <span class="subtitle" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">{{data.fibres | number:'1.0-0'}}g</span>
+            </div>
+            <div class="info">
+                <span>Glucides: </span>
+                <span class="subtitle" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">{{data.glucides | number:'1.0-0'}}g</span>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div id="backgroundDepense" *ngIf="type === 'Dépense'" [ngStyle]="{'background': 'linear-gradient(rgba(25,25,25,0.7),rgba(25,25,25,0.7)),url('+data.image+')'}">
+        <mat-icon id="delete" (click)="deleteLigne()">delete</mat-icon>
+        <fa-icon id="icon" [ngStyle]="{'color' : selectedColor,'top': randomPosition[0].top, 'left': randomPosition[0].left}" [icon]="selectedIcon"></fa-icon>
+        <fa-icon id="icon" [ngStyle]="{'color' : selectedColor,'top': randomPosition[1].top, 'left': randomPosition[1].left}" [icon]="selectedIcon"></fa-icon>
+        <fa-icon id="icon" [ngStyle]="{'color' : selectedColor,'top': randomPosition[2].top, 'left': randomPosition[2].left}" [icon]="selectedIcon"></fa-icon>
+        <fa-icon id="icon" [ngStyle]="{'color' : selectedColor,'top': randomPosition[3].top, 'left': randomPosition[3].left}" [icon]="selectedIcon"></fa-icon>
+
+        <div class="topDepense">
+            <span class="titleDepense" *ngIf="type === 'Dépense'">{{data.sport}}</span>
+        </div>
+        <div class="insideDepense" *ngIf="type === 'Dépense'">
+            <div style="display: flex;">
+                <input *ngIf="type === 'Dépense'" style="justify-content: flex-end;" (blur)="updateLigne($event)" matInput class="subtitle" [value]="data.time" autocomplete="off">
+                <span class="subtitle" *ngIf="type === 'Dépense'">min</span>
+            </div>
+            <span class="subtitle">{{data.calories | number:'1.0-0'}}kCal</span>
+        </div>
+    </div>
+</div>

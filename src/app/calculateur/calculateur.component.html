@@ -1,0 +1,300 @@
+<div style="max-width: 100vw; overflow-x: hidden;">
+    <app-wait *ngIf="!show && !error"></app-wait>
+    <app-error *ngIf="error"></app-error>
+    <div *ngIf="show" class="navBar">
+        <div class="inside">
+            <button mat-button (click)="newAliment()">
+                <mat-icon  matTooltip="Ajouter un nouvel aliment">fiber_new</mat-icon>
+            </button>
+            <form class="datePicker" [formGroup]="dateForm">
+                <mat-form-field style="display: flex;" hideRequiredMarker="true">
+                    <input formControlName="date" matInput [matDatepicker]="picker" style="color: white;" (dateChange)="setDate($event)" readonly>
+                    <mat-placeholder style="color: white;">Date</mat-placeholder>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+                </mat-form-field>
+            </form>
+            <form class="paramsForm" [formGroup]="paramsForm" (ngSubmit)="setParams()">
+                <mat-form-field>
+                    <input style="color: white;" (input)="filter($event,'Params')" type="text" class="auto" formControlName="name" matInput [matAutocomplete]="auto">
+                    <mat-placeholder style="color: white;">Utilisateur</mat-placeholder>
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of allParamsFiltered" [value]="option.name">
+                        {{option.name}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </form>
+            <button mat-button routerLink="/home">
+                <mat-icon  matTooltip="Retour à l'accueil">home</mat-icon> 
+            </button>
+        </div>
+    </div>
+    <div id="calculateur" *ngIf="show">
+        <h1 class="title">Calculateur calorique</h1>
+        <!--    Calculateur calorique    -->
+        <div class="resultCalculateur">
+            <form class="actions" [formGroup]="addLigneForm" (ngSubmit)="addLigne()">
+                <div class="quantity">
+                    <mat-form-field hideRequiredMarker="true">
+                        <input autocomplete="off" type="text" formControlName="quantity" matInput>
+                        <mat-placeholder [ngStyle]="{'color': addLigneForm.get('quantity')?.errors != null ? 'var(--red)' : 'white'}">Quantité *</mat-placeholder>
+                    </mat-form-field>
+
+                    <mat-form-field hideRequiredMarker="true">
+                        <input (input)="filter($event,'Aliments')" type="text" class="auto" formControlName="aliment" matInput [matAutocomplete]="auto">
+                        <mat-placeholder [ngStyle]="{'color': addLigneForm.get('aliment')?.errors != null ? 'var(--red)' : 'white'}">Aliment *</mat-placeholder>
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of allAlimentsFiltered" [value]="option.name">
+                            {{option.name}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <div class="buttonAdd">
+                    <button class="add" type="submit" mat-button [disabled]="addLigneForm.invalid"  matTooltip="Ajouter une ligne">
+                        <mat-icon style="color: white;">add</mat-icon>
+                    </button> 
+                </div>
+            </form>
+
+            <div class="allLignes">
+                <ligne-infos *ngFor="let ligne of todayLignes" (refresh)="refreshData($event)" [data]="ligne"></ligne-infos>
+            </div>
+        </div>
+
+        <!--    Total calorique    -->
+        <div class="objList">
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Total calorique
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="grades">
+                        <grades [note]="calculateur.calories" [noteMax]="objectifs.calories" [unit]="'kCal'"></grades>
+                    </div>
+                        <progress-bar class="progressBar"
+                            [pourcentage]="calculateur.calories / objectifs.calories"
+                        ></progress-bar>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Total protéines
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="grades">
+                        <grades [note]="calculateur.proteines" [noteMax]="objectifs.proteines" [unit]="'g'"></grades>
+                    </div>
+                        <progress-bar class="progressBar"
+                            [pourcentage]="calculateur.proteines / objectifs.proteines"
+                        ></progress-bar>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Total lipides
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="grades">
+                        <grades [note]="calculateur.lipides" [noteMax]="objectifs.lipides" [unit]="'g'"></grades>
+                    </div>
+                        <progress-bar class="progressBar"
+                            [pourcentage]="calculateur.lipides / objectifs.lipides"
+                        ></progress-bar>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Total glucides
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="grades">
+                        <grades [note]="calculateur.glucides" [noteMax]="objectifs.glucides" [unit]="'g'"></grades>
+                    </div>
+                        <progress-bar class="progressBar"
+                            [pourcentage]="calculateur.glucides / objectifs.glucides"
+                        ></progress-bar>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Total fibres
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="grades">
+                        <grades [note]="calculateur.fibres" [noteMax]="30" [unit]="'g'"></grades>
+                    </div>
+                        <progress-bar class="progressBar"
+                            [pourcentage]="calculateur.fibres / 30"
+                        ></progress-bar>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+
+        <h1 class="subtitle">Ajouter une dépense</h1>
+
+        <!--    Calculateur dépense    -->
+        <div class="resultCalculateur" id="reverse">
+            <div class="allLignes">
+                <ligne-infos *ngFor="let ligne of depenseToday" (refresh)="refreshData($event)" [data]="ligne"></ligne-infos>
+            </div>
+
+            <form class="actions" [formGroup]="addDepenseForm" (ngSubmit)="addDepense()">
+                <div class="buttonAdd">
+                    <button class="add" type="submit" mat-button [disabled]="addDepenseForm.invalid"  matTooltip="Ajouter une dépense">
+                        <mat-icon style="color: white;">add</mat-icon>
+                    </button>
+                </div>
+        
+                <div class="quantity">
+                    <mat-form-field hideRequiredMarker="true">
+                        <input (input)="filter($event,'Depense')" type="text" value="Dépense" formControlName="sport" matInput [matAutocomplete]="autoDepense">
+                        <mat-placeholder [ngStyle]="{'color': addDepenseForm.get('sport')?.errors != null ? 'var(--red)' : 'white'}">Sport *</mat-placeholder>
+                        <mat-autocomplete #autoDepense="matAutocomplete">
+                            <mat-option *ngFor="let option of allDepenseFiltered" [value]="option.sport">
+                            {{option.sport}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+            
+                    <mat-form-field hideRequiredMarker="true">
+                        <input autocomplete="off" type="text" formControlName="time" matInput>
+                        <mat-placeholder [ngStyle]="{'color': addDepenseForm.get('time')?.errors != null ? 'var(--red)' : 'white'}">Temps (min) *</mat-placeholder>
+                    </mat-form-field>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="recette" *ngIf="show">
+        <h1 class="title">Calculateur recette</h1>
+        <div class="resultCalculateur">
+            <div style="width: 30%;">
+                <form style="width: 100%;" class="actions" [formGroup]="addLigneForm" (ngSubmit)="addLigne()">
+                    <div class="quantity">
+                        <mat-form-field hideRequiredMarker="true">
+                            <input (input)="filter($event,'Aliments')" type="text" class="auto" formControlName="aliment" matInput [matAutocomplete]="auto">
+                            <mat-placeholder [ngStyle]="{'color': addLigneForm.get('aliment')?.errors != null ? 'var(--red)' : 'white'}">Aliment *</mat-placeholder>
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of allAlimentsFiltered" [value]="option.name">
+                                {{option.name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                
+                        <mat-form-field hideRequiredMarker="true">
+                            <input autocomplete="off" type="text" formControlName="quantity" matInput>
+                            <mat-placeholder [ngStyle]="{'color': addLigneForm.get('quantity')?.errors != null ? 'var(--red)' : 'white'}">Quantité *</mat-placeholder>
+                        </mat-form-field>
+                    </div>
+                    <div class="buttonAdd">
+                        <button class="add" type="submit" mat-button [disabled]="addLigneForm.invalid"  matTooltip="Ajouter une ligne">
+                            <mat-icon style="color: white;">add</mat-icon>
+                        </button> 
+                    </div>
+                </form>
+                <form style="width: 100%;" class="actions" [formGroup]="nomRecetteForm" (ngSubmit)="addRecette()">
+                    <div class="quantity">
+                        <mat-form-field hideRequiredMarker="true">
+                            <input autocomplete="off" type="text" formControlName="name"  matInput>
+                            <mat-placeholder [ngStyle]="{'color': nomRecetteForm.get('name')?.errors != null ? 'var(--red)' : 'white'}">Nom de la recette *</mat-placeholder>
+                        </mat-form-field>
+                    </div>
+                    <div class="buttonAdd">
+                        <button class="add" type="submit" mat-button [disabled]="nomRecetteForm.invalid">
+                            Sauvegarder
+                        </button>
+                    </div>
+                </form>
+            </div>
+        
+            <div class="allLignes">
+                <ligne-infos *ngFor="let ligne of ingredients" (refresh)="refreshData($event)" [data]="ligne"></ligne-infos>
+            </div>
+        </div>
+        
+        <div class="objList">
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Valeures nutritionnelles pour 100 grammes
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="detailRecette">
+                        <div class="line">
+                            <p>Calories: </p>
+                            <div class="valueAndUnit">
+                                <p class="value">{{caloriesRecette.calories}}</p>
+                                <p>kCal</p>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <p>Protéines: </p>
+                            <div class="valueAndUnit">
+                                <p class="value">{{caloriesRecette.proteines}}</p>
+                                <p>g</p>
+                            </div> 
+                        </div>
+                        <div class="line">
+                            <p>Fibres: </p>
+                            <div class="valueAndUnit">
+                                <p class="value">{{caloriesRecette.fibres}}</p>
+                                <p>g</p>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <p>Lipides: </p>
+                            <div class="valueAndUnit">
+                                <p class="value">{{caloriesRecette.lipides}}</p>
+                                <p>g</p>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <p>Glucides: </p>
+                            <div class="valueAndUnit">
+                                <p class="value">{{caloriesRecette.glucides}}</p>
+                                <p>g</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
+
+<dialog-box *ngIf="openDialogBox"></dialog-box>

@@ -1,0 +1,82 @@
+<app-wait *ngIf="!show && !error"></app-wait>
+<app-error *ngIf="error"></app-error>
+
+<div *ngIf="show" class="navBar">
+    <div class="inside">
+        <button id="add" mat-button (click)="addParams()">
+            <mat-icon  matTooltip="Ajouter un nouveau profil">fiber_new</mat-icon>
+        </button>
+
+        <button mat-button routerLink="/home">
+            <mat-icon  matTooltip="Retour à l'accueil">home</mat-icon> 
+        </button>
+    </div>
+</div>
+
+<div class="suivi" *ngIf="show">
+
+    <h1 class="title">Suivi</h1>
+    <div class="infos">
+        <div class="params">
+            <form [formGroup]="paramsForm">
+
+                <mat-form-field hideRequiredMarker="true">
+                    <input (input)="filter($event)" type="text" class="auto" formControlName="name" matInput [matAutocomplete]="auto">
+                    <mat-placeholder [ngStyle]="{'color': paramsForm.get('name')?.errors != null ? 'var(--red)' : 'white'}">Utilisateur *</mat-placeholder>
+                    <mat-autocomplete (optionSelected)="fillForm($event)" #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of allUsersFiltered" [value]="option.name">
+                        {{option.name}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" matInput type="text" formControlName="poids">
+                    <mat-placeholder style="color: white;">Masse *</mat-placeholder>
+                </mat-form-field>
+
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" matInput type="text" formControlName="MG">
+                    <mat-placeholder style="color: white;">MG (%) *</mat-placeholder>
+                </mat-form-field>
+
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" matInput type="text" formControlName="coefProt">
+                    <mat-placeholder style="color: white;">Coefficient protéines *</mat-placeholder>
+                </mat-form-field>
+
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" matInput type="text" formControlName="coefLip">
+                    <mat-placeholder style="color: white;">Coefficient lipides *</mat-placeholder>
+                </mat-form-field>
+
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" matInput type="text" formControlName="activity">
+                    <mat-placeholder style="color: white;">Niveau d'activité *</mat-placeholder>
+                </mat-form-field>
+            </form>
+            <div class="saveParams">
+                <button class="transparentYellowButton" mat-button (click)="changeParams()" [disabled]="paramsForm.invalid">Changer les paramètres</button>
+            </div>
+        </div>
+        <div class="graph">
+            <form [formGroup]="infoForm" class="typeForm">
+                <mat-form-field hideRequiredMarker="true" style="width: 15VW;">
+                    <mat-placeholder style="color: white;">Graphiques</mat-placeholder>
+                    <mat-select formControlName="type" class="select" (selectionChange)="changeType($event)" [(value)]="type">
+                        <mat-option *ngFor="let type of allType" [value]="type">
+                          {{ type }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+            <div id="graph">
+                <div id="graphDiv">
+                    <canvas [height]="height" id="MyChart" >{{ chart }}</canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<dialog-box *ngIf="openDialogBox"></dialog-box>

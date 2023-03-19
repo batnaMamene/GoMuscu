@@ -1,0 +1,45 @@
+<h2 class="title">
+    Ajouter un nouveau profil utilisateur
+</h2>
+<div class="body">
+    <form [formGroup]="formGroup" (ngSubmit)="addParams()">
+        <div class="containerFormField">
+            <mat-form-field hideRequiredMarker="true">
+                <input autocomplete="off" type="text" formControlName="name" matInput>
+                <mat-placeholder [ngStyle]="{'color': (formGroup.get('name')?.errors !== null  || formGroup.value.name === '') ? 'var(--red)' : 'black'}">Nom *</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <div class="containerFormField">
+            <mat-form-field hideRequiredMarker="true">
+                <input autocomplete="off" type="text" formControlName="poids" matInput>
+                <mat-placeholder [ngStyle]="{'color': (formGroup.get('poids')?.errors !== null  || formGroup.value.poids === '') ? 'var(--red)' : 'black'}">Masse *</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <div class="containerFormField">
+            <mat-form-field hideRequiredMarker="true">
+                <input autocomplete="off" type="text" formControlName="MG" matInput>
+                <mat-placeholder [ngStyle]="{'color': (formGroup.get('MG')?.errors !== null  || formGroup.value.MG === '') ? 'var(--red)' : 'black'}">Masse graisseuse (%) *</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <div class="containerFormField">
+            <mat-form-field hideRequiredMarker="true">
+                <input autocomplete="off" type="text" formControlName="coefLip" matInput>
+                <mat-placeholder [ngStyle]="{'color': (formGroup.get('coefLip')?.errors !== null  || formGroup.value.coefLip === '') ? 'var(--red)' : 'black'}">Coefficient lipides *</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <div class="containerFormField">
+            <mat-form-field hideRequiredMarker="true">
+                <input autocomplete="off" type="text" formControlName="coefProt" matInput>
+                <mat-placeholder [ngStyle]="{'color': (formGroup.get('coefProt')?.errors !== null  || formGroup.value.coefProt === '') ? 'var(--red)' : 'black'}">Coefficient protéines *</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <div class="containerFormField">
+            <mat-form-field hideRequiredMarker="true">
+                <input autocomplete="off" type="text" formControlName="act" matInput>
+                <mat-placeholder [ngStyle]="{'color': (formGroup.get('act')?.errors !== null  || formGroup.value.act === '') ? 'var(--red)' : 'black'}">Niveau d'activité *</mat-placeholder>
+            </mat-form-field>   
+        </div> 
+        <button class="blackAndYellowButton" type="submit" mat-button [disabled]="formGroup.invalid">Terminer</button>
+    </form>
+</div>
+

@@ -1,0 +1,128 @@
+.uploadWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 5vh;
+    background: var(--text-color-2);
+    color: var(--light-yellow);
+    border-radius: 2px;
+    width: 15vw;margin-bottom: 1.34375em;
+    cursor: pointer;
+}
+
+.uploadWrapper input {
+    cursor: pointer !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    width: 15vw;
+    height: 5vh;
+}
+
+.line{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    background-color: var(--text-color-2);
+    color: var(--light-yellow);
+}
+
+.form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    width: 97%;
+}
+
+button{
+    background-color: var(--text-color-2);
+    color: var(--light-yellow);
+       font-weight: bold;
+}
+
+button:hover,.uploadWrapper:hover{
+       box-shadow: var(--background-color-2) -1px 1px, var(--background-color-2) -2px 2px, var(--background-color-2) -3px 3px, var(--background-color-2) -4px 4px, var(--background-color-2) -5px 5px, var(--background-color-2) -6px 6px;
+       transform: translate3d(6px, -6px, 0);
+       
+       transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+
+.champs{
+    display: flex; justify-content: center; align-items: center; width: 100%;
+}
+
+mat-form-field,.btn-upload{
+    width: 15vw;
+}
+
+::ng-deep .mat-step-header{
+    padding-right: 0 !important;
+    padding-left: 5vw !important;
+}
+
+::ng-deep mat-horizontal-stepper{
+    background-color: var(--light-yellow) !important;
+}
+
+::ng-deep .mat-step-icon{
+    background-color: var(--text-color-2) !important;
+}
+
+::ng-deep .mat-horizontal-content-container{
+    padding: 0 !important;
+}
+
+::ng-deep .form{
+    .mat-form-field-infix{
+        background: rgba(127,124,33,0.4);
+    }
+
+    .mat-form-field.mat-focused {
+        .mat-form-field-infix {
+            background: rgba(25,25,25, 0.4);
+        }
+        .mat-input-element::selection{
+            background-color: var(--background-color-2) !important;
+        }
+    }
+
+    .mat-focused .mat-form-field-label {
+        color: var(--text-color-2) !important;
+    }
+
+    .mat-input-element {
+        caret-color: var(--text-color-2) !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: var(--text-color-2);
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: var(--text-color-2) !important;
+    }
+}

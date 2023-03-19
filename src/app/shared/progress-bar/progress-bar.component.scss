@@ -1,0 +1,17 @@
+.background{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--light-yellow);
+    width: 100%;
+    height: 100%;
+}
+
+#bar{
+    background-color: var(--text-color-2);
+    max-width: 98%;
+    margin-left: 1%;
+    border-radius: 10px;
+    height: 75%;
+
+}

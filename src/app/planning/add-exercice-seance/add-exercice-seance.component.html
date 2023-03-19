@@ -1,0 +1,30 @@
+<div style="display: flex; justify-content: center; width: 100%;">
+    <form [formGroup]="formGroup" (ngSubmit)="sendExercice()">
+        <div class="form">
+            <div class="champs">
+                <mat-form-field hideRequiredMarker="true">
+                    <input (input)="filterFamille($event)" type="text" class="auto" [matAutocomplete]="auto" matInput formControlName="famille" required>
+                    <mat-placeholder [ngStyle]="{'color': (formGroup.get('famille')?.errors !== null  || formGroup.value.famille === '') ? '#FB667A' : 'rgb(255,248,66)'}">Famille *</mat-placeholder>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="setExercicesFamille($event)">
+                        <mat-option *ngFor="let option of allFamillesFiltered" [value]="option.name">
+                        {{option.name}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <div class="champs">
+                <mat-form-field hideRequiredMarker="true">
+                    <input (input)="filterExercices($event)" type="text" [matAutocomplete]="auto2" matInput formControlName="exercice" required>
+                    <mat-placeholder [ngStyle]="{'color': (formGroup.get('exercice')?.errors !== null  || formGroup.value.exercice === '') ? '#FB667A' : 'rgb(255,248,66)'}">Exercice *</mat-placeholder>
+                    <mat-autocomplete #auto2="matAutocomplete">
+                        <mat-option *ngFor="let option of allExercicesFiltered" [value]="option.name">
+                        {{option.name}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+
+            <button style="color: var(--light-yellow);" class="submit" type="submit" mat-button [disabled]="formGroup.invalid">Ajouter l'exercice</button>
+        </div>
+    </form>
+</div>

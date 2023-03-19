@@ -1,0 +1,142 @@
+.all{
+    height: 100%;
+    width: 100%;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 50vh;
+    background-color: var(--light-yellow);
+    color: var(--text-color-2);
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+.body{
+    background-color: var(--text-color-2);
+    width: 50vh;
+    display: flex; height: 40vh; align-items: center; width: 100%;
+    border-radius: 0 0 10px 10px;
+    .form{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        height: 90%;
+        margin-top: 1.34375em;
+        .containerFormField{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        button[disabled]{
+            color: var(--darken-yellow);
+        }
+        button[disabled]:hover{
+            background-color: transparent;
+            color: var(--red) !important;
+            font-weight: bold;
+            
+            box-shadow: var(--background-color-2) 0px 0px, var(--background-color-2) 0px 0px, var(--background-color-2) 0px 0px, var(--background-color-2) 0px 0px, var(--background-color-2) 0px 0px, var(--background-color-2) 0px 0px;
+            transform: translate3d(0, 0, 0);
+            
+            transition-delay: 0s;
+                transition-duration: 0.4s;
+                transition-property: all;
+            transition-timing-function: line;
+        }
+        button{
+            color: var(--text-color-1);
+            margin-left: 2%;
+            width: 30vw;
+        }
+    }
+}
+
+::ng-deep form{
+    .mat-form-field-infix{
+        display: flex;
+    }
+    .mat-icon-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1em;
+        height: 1em;
+        color: var(--text-color-1);
+    }
+
+    .mat-focused .mat-form-field-label {
+        color: var(--text-color-1) !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: var(--text-color-1) !important;
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: var(--light-yellow) !important;
+    }
+
+    .mat-input-element{
+        color: var(--text-color-1) !important;
+    }
+
+    .mat-form-field.mat-focused {
+        mat-placeholder{
+            color: var(--light-yellow) !important;
+        }
+        .mat-form-field-underline {
+            /*change color of underline*/
+            background-color: transparent !important;
+        } 
+        .mat-input-element{
+            color: var(--light-yellow) !important;
+            caret-color: var(--light-yellow);
+        }
+        .mat-icon-button{
+            color: var(--light-yellow) !important;
+        }
+    }
+}
+
+.blackAndYellowButton{
+    background-color: var(--text-color-2);
+    color: var(--text-color-1);
+    font-weight: bold;
+    cursor: pointer !important;
+    transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+.blackAndYellowButton:hover{
+  background-color: var(--light-yellow);
+  color: var(--text-color-2) !important;
+  box-shadow: var(--darken-yellow) -1px 1px, var(--darken-yellow) -2px 2px, var(--darken-yellow) -3px 3px;
+  transform: translate3d(3px, -3px, 0);
+       
+       transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+
+mat-form-field,button{
+    width: 10vw;
+}
+
+
+@media screen and (max-width: 600px){
+    .body{
+        height: 60vh;
+    }
+    mat-form-field{
+        width: 25vw;
+    }
+}
+

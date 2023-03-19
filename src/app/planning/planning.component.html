@@ -1,0 +1,191 @@
+<app-wait *ngIf="!show && !error"></app-wait>
+<app-error *ngIf="error"></app-error>
+<div *ngIf="show" class="navBar">
+    <div class="inside">
+        <button id="add" mat-button (click)="addExercice()">
+            <mat-icon matTooltip="Ajouter un nouvel exercice">fiber_new</mat-icon>
+        </button>
+        <form class="userAndDate" [formGroup]="dateForm">
+            <mat-form-field id="rightButton" hideRequiredMarker="true">
+                <input [value]="userName" (input)="filter($event,'Users')" type="text" class="auto" matInput [matAutocomplete]="auto">
+                <mat-placeholder style="color: var(--text-color-2);">Utilisateur </mat-placeholder>
+                <mat-autocomplete (optionSelected)="setUser($event)" #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of allUsersFiltered" [value]="option.name">
+                    {{option.name}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field id="leftButton" hideRequiredMarker="true">
+                <input formControlName="date" matInput [matDatepicker]="picker" (dateChange)="setDate($event)" readonly>
+                <mat-placeholder style="color: var(--text-color-2);">Date</mat-placeholder>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+            </mat-form-field>
+        </form>
+        <button mat-button routerLink="/home">
+            <mat-icon  matTooltip="Retour à l'accueil">home</mat-icon> 
+        </button>
+    </div>
+</div>
+<div class="today" *ngIf="show">
+    <h1 class="title">Planning du Jour</h1>
+
+    <div class="planToday">
+        <div class="planToday1">
+    
+            <div class="actionsDay">
+                <button class="blackButton" mat-button (click)="addExerciceSeance()">
+                    Ajouter un exercice
+                </button>
+            </div>
+            <button class="blackButton" mat-button (click)="saveResult()">
+                Sauvegarder la séance
+            </button>
+        </div>
+    
+        <div class="tabsDay">
+            <mat-tab-group mat-align-tabs="start">
+                <mat-tab *ngFor="let exo of todayPlanning" [label]="exo.name">
+                    <div class="divDay">
+                        <div class="removeDay">
+                            <mat-label>{{exo.volumeTotal}}kg</mat-label>
+                            <div id="lastWeek">
+                                <p>Semaine précédente:</p>
+                                <p>{{exo.totalVolumeLastWeek}}kg</p>
+                            </div>
+                            <mat-icon (click)="removeExercice(exo.name)" matTooltip="Retirer cet exercice de la séance">delete</mat-icon>
+                        </div>
+                        <div class="infoDay">
+                            <div class="detailDay" *ngFor="let detail of exo.details; index as i">
+                                <div class="line">
+                                    <mat-label>Charge série {{i + 1}}</mat-label>
+                                    <input autocomplete="off" class="serieInput" type="text" (blur)="setVolume(exo,todayPlanning)" [(ngModel)]="detail.charge" matInput>
+                                </div>
+                                <div class="line">
+                                    <mat-label>Répétitions</mat-label>
+                                    <input autocomplete="off" class="serieInput" type="text" (blur)="setVolume(exo,todayPlanning)" [(ngModel)]="detail.repetition" matInput>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:flex; width: 100%; justify-content: center;">
+                            <div class="addDay">
+                                <mat-icon (click)="addSerie(exo.name)" matTooltip="Ajouter une série">+</mat-icon>
+                                <mat-icon (click)="removeSerie(exo.name)" matTooltip="Retirer une série" *ngIf="exo.details.length > 0">-</mat-icon>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+            
+        </div>
+    </div>
+    
+</div>
+
+<div class="planning" *ngIf="show">
+    <h1 class="title">Planning de la semaine</h1>
+
+    <div class="hebdo">
+        <div cdkDropListGroup class="dragAndDropDivs">
+                <div class="container" id="dragAndDropExercice"> 
+                    <div class="heightMatFormField">
+                        <mat-form-field hideRequiredMarker="true" [floatLabel]="'never'">
+                            <input (input)="filter($event,'Famille')" type="text" class="auto" matInput [matAutocomplete]="autos">
+                            <mat-placeholder style="color: var(--text-color-2)">Famille</mat-placeholder>
+                            <mat-autocomplete #autos="matAutocomplete" (optionSelected)="setExercices($event)">
+                                <mat-option *ngFor="let option of allFamillesFiltered" [value]="option.name">
+                                {{option.name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                
+                    
+                <div cdkDropList id="exercices" [cdkDropListData]="allExercicesFiltered" class="list" (cdkDropListDropped)="drop($event)">
+                    <div class="box" id="boxSelectExercice" *ngFor="let item of allExercicesFiltered" cdkDrag>
+                        <p>{{item.name}}</p>
+                    </div>
+                </div>
+            </div>
+            
+    
+            <div class="plan">
+                <div class="container" *ngFor="let day of planning">
+                    <h2 class="titleDay">{{day.day}}</h2>
+                    <div id="noScroll">
+                        <div cdkDropList [cdkDropListData]="day.exercices" id="day" class="list" (cdkDropListDropped)="drop($event)">
+                            <div class="box" *ngFor="let item of day.exercices" cdkDrag>
+                                <div class="drop-custom-placeholder" *cdkDragPlaceholder></div>
+                                <div class="boxContainer">
+                                    <mat-icon (click)="removeItem(item,day.day)">delete</mat-icon>
+                                    <div class="topBoxContainer">
+                                        <mat-label>{{item.name}}</mat-label>
+                                    </div>
+                                    <div class="bodyBoxContainer">
+                                        <mat-label>Séries</mat-label>
+                                        <input autocomplete="off" class="serieInput" [value]="item.serie" matInput type="text" (input)="setSerie(day,item,$event)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detailMuscles">
+            <div class="usedMuscles">
+                <h2>Muscles utilisés</h2>
+                <mat-tab-group *ngIf="yesSeries.length > 0" mat-align-tabs="start">
+                    <mat-tab class="tabs" *ngFor="let fam of yesSeries" [label]="fam.name">
+                        <div class="lineMuscle" *ngFor="let muscle of fam.muscles">
+                            <div class="containerLineMuscle">
+                                <div id="name">
+                                    <mat-label [ngStyle]="{'color' : muscle.serie === 0 ? 'var(--red)' : 'var(--text-color-2)'}">
+                                        {{muscle.name}}
+                                    </mat-label>
+                                </div>
+                                <div id="serie">
+                                    <mat-label>Séries</mat-label>
+                                    <input autocomplete="off" class="serieInput" type="text" [value]="muscle.serie" matInput readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+
+            <div class="usedMuscles">
+                <h2>Muscles sans séries</h2>
+                <mat-tab-group mat-align-tabs="start">
+                    <mat-tab class="tabs" *ngFor="let fam of noSeries" [label]="fam.name">
+                        <div class="lineMuscle" *ngFor="let muscle of fam.muscles">
+                            <div class="containerLineMuscle">
+                                <div id="name">
+                                    <mat-label [ngStyle]="{'color' : muscle.serie !== 0 ? 'var(--text-color-2)' : 'var(--red)'}">
+                                        {{muscle.name}}
+                                    </mat-label>
+                                </div>
+                                <div id="serie">
+                                    <mat-label>Séries</mat-label>
+                                    <input autocomplete="off" class="serieInput" type="text" [value]="muscle.serie" matInput readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+
+        <div class="savePlanning">
+            <button mat-button (click)="savePlanning()">
+                Sauvegarder Planning
+            </button>
+        </div>
+        
+    </div>
+</div>
+
+<dialog-box *ngIf="openDialogBox"></dialog-box>

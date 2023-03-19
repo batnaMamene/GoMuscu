@@ -1,0 +1,16 @@
+<h2 class="title">
+    Ajouter un Muscle
+</h2>
+
+<form style="display: flex; flex-direction: column; width: 100%; height: 24vh; justify-content: center; align-items: center;" [formGroup]="formGroup" (ngSubmit)="add()">
+    <div class="form">
+        <div class="champs">
+            <mat-form-field>
+                <input matInput autocomplete="off" placeholder="Nom" formControlName="name" required>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="footer">
+        <button type="submit" mat-button>Terminer</button>
+    </div>
+</form>

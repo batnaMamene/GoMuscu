@@ -1,0 +1,39 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 30vh;
+}
+::ng-deep .form{
+    .mat-form-field-infix{
+        background: rgba(70,74,82,0.4);
+    }
+
+    .mat-form-field.mat-focused {
+        .mat-form-field-infix {
+            background: rgba(255,248,66, 0.4);
+        }
+        .mat-input-element::selection{
+            background-color: var(--background-color-2) !important;
+        }
+    }
+
+    .mat-focused .mat-form-field-label {
+        color: var(--light-yellow) !important;
+    }
+
+    .mat-input-element {
+        color: var(--light-yellow) !important;
+        caret-color: var(--light-yellow) !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: var(--light-yellow);
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: var(--light-yellow) !important;
+    }
+}

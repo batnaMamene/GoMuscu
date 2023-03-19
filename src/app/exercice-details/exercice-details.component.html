@@ -1,0 +1,12 @@
+<app-wait *ngIf="!show && !error"></app-wait>
+<app-error *ngIf="error"></app-error>
+<div *ngIf="show" class="background">
+    <div style="display: flex; justify-content: flex-end; align-items: flex-end; height: 5vh; width: 97%; margin-top: 1vh;">
+        <button mat-button style="cursor: pointer;" matTooltip="Retourner à l'accueil" class="link" routerLink="/home">
+            <mat-icon>home</mat-icon> 
+        </button>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center; height: 15vh; width: 100%;">
+        <h1 class="title">{{exercice.name}}</h1>
+    </div>
+</div>

@@ -1,0 +1,153 @@
+.title{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 7vh;
+    height: 15vh;
+    background-color: var(--text-color-2);
+    color: var(--text-color-1);
+}
+
+.subtitle{
+  display: flex;
+  align-items: center;
+  font-size: 5vh;
+  height: 10vh;
+  background-color: var(--text-color-2);
+  color: var(--text-color-1);
+  margin-left: 3vw !important;
+  margin-bottom: 5vh !important;
+}
+
+.part{
+    display: flex;
+    align-items: center;
+    font-size: 3vh;
+    height: 10vh;
+    margin-left: 10vw !important;
+}
+
+.exercices{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.borderBlack{
+    background-color: var(--text-color-2); 
+    color: var(--text-color-1); 
+    justify-content: center; 
+    border-radius: 4px; 
+    display: flex; 
+    align-items: center;
+    overflow: auto;
+}
+
+.borderWhite{
+    background-color: var(--text-color-2); 
+    color: var(--text-color-1); 
+    border: 2px solid var(--text-color-1);
+    justify-content: center; 
+    border-radius: 4px; 
+    display: flex; 
+    align-items: center;
+    overflow: auto;
+}
+
+.fibre{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 5vh;
+  background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("../../assets/fibres.jpg");
+  background-size: cover !important;
+  height: 100vh;
+  color: var(--text-color-2);
+}
+
+.description{
+    margin-bottom: 6vh;
+}
+
+.exo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    img{
+        height: 20vh;
+    }
+}
+
+.scapula-wrap {
+    padding-top: 1rem;
+    position: relative;
+    background: linear-gradient(to right, var(--text-color-1), var(--light-yellow));
+    padding-top: 3px;
+}
+
+.scapula{
+    align-items: center;
+    border-top: 2px solid linear-gradient(to right, var(--text-color-1), var(--light-yellow));
+    background: var(--text-color-2);
+}
+.description,.scapula{
+    display: flex;
+    height: fit-content;
+    width: 100vw;
+}
+
+.article{
+    display: block;
+    width: 100%;
+    background-color: var(--text-color-2);
+    color: var(--text-color-1);
+}
+
+.image{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+
+.line{
+    background-color: var(--light-yellow);
+    height: 2px;
+    width: 10%;
+}
+
+#img{
+    width: 20vw;
+}
+
+.infoDescription{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    line-height: 4vh;
+    align-items: center;
+}
+
+p{    
+    font-size: 2vmin;
+}
+
+img{
+    border-radius: 4px;
+}
+
+.lineAnim:nth-child(3){
+    &::after{
+        animation-delay: 1.3s;
+    }
+}
+.lineAnim:nth-child(2){
+    &::after{
+        animation-delay: 7.3s;
+    }
+}
+

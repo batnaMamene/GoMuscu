@@ -1,0 +1,687 @@
+////////////////////////////////    Navbar    ////////////////////////////////
+.navBar{
+    display: flex; align-items: center; height: 15vh; width: 100%;
+    position: fixed;
+    background: var(--text-color-1) ;
+    z-index: 5;
+    top: 0;
+    border-bottom: 1px solid var(--text-color-2);
+    .inside{
+        display: flex; justify-content: flex-end;
+        width: 100%;
+    }
+    .userAndDate{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
+        padding-top: 1.25em;
+        width: 50%;
+    }
+    button{
+        margin-left: 10%;
+        margin-right: 10%;
+        color: var(--text-color-2);
+        transition: all 600ms;
+        &:hover{
+            background-color: white !important;
+            color: var(--blue);
+        }
+    }
+    mat-icon{
+        font-size: 5vh;
+        height: 5vh;
+        width: 5vh;
+    }
+}
+::ng-deep .userAndDate, ::ng-deep .container{
+    .mat-form-field-infix{
+        display: flex;
+    }
+    .mat-icon-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1em;
+        height: 1em;
+        color: var(--text-color-2);
+    }
+
+    .mat-focused .mat-form-field-label {
+        color: var(--text-color-2) !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: var(--text-color-2);
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: var(--blue) !important;
+    }
+
+    .mat-form-field.mat-focused {
+        mat-placeholder{
+            color: var(--blue) !important;
+        }
+        .mat-form-field-underline {
+            /*change color of underline*/
+            background-color: transparent;
+        } 
+        .mat-input-element{
+            color: var(--blue) !important;
+            caret-color: var(--blue);
+        }
+        .mat-icon-button{
+            color: var(--blue) !important;
+        }
+    }
+}
+::ng-deep .mat-calendar-body-cell-content:hover, ::ng-deep .mat-calendar-body-today{
+    background-color: #cccccc !important;
+}
+::ng-deep .mat-calendar-body-selected {
+    background-color: black !important;
+}
+::ng-deep.mat-datepicker-content .mat-calendar{
+    height: fit-content !important;
+    tr{
+        height: fit-content !important;
+    }
+}
+::ng-deep .mat-datepicker-toggle-default-icon{
+    height: 1em;
+    width: 1em;
+}
+.mat-option:hover{
+    color: var(--text-color-1) !important;
+    background-color: var(--text-color-2) !important;
+}
+.mat-option.mat-selected{
+    color: var(--text-color-1) !important;
+    background-color: var(--text-color-2) !important;
+}
+////////////////////////////////    Today    ////////////////////////////////
+.today{
+    position: relative;
+    margin-top: 15vh;
+    padding: 20vh 0;
+    background: linear-gradient(rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), url("../../assets/today.jpg");
+    color: var(--text-color-2);
+    background-size: cover !important;
+    background-attachment: fixed;
+}
+
+.title{
+    display: flex;
+    position: absolute;
+    left: 5%;
+    font-size: 10vh;
+    line-height: 10vh;
+    color: rgba(25,25,25, 0.7);
+}
+.subtitle{
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+    font-size: 4vh;
+    line-height: 4vh;
+    color: rgba(255,255,255, 0.7);
+}
+
+.planToday{
+    display: flex; width: 100%;
+    height: 130vh;
+    align-items: center;
+    .planToday1{
+        display: flex; flex-direction: column; height: 30%; width: 30%; align-items: center; justify-content: space-evenly;
+        .actionsDay{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+        }
+        button{
+            box-shadow: rgb(0,0,0) 1px 1px,rgba(0,0,0,0.8) 2px 2px,rgba(0,0,0,0.6) 3px 3px,rgba(0,0,0,0.4) 4px 4px,rgb(0,0,0,0.2) 5px 5px !important;
+        }
+    }
+    .removeDay{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        height: 4vh;
+        align-items: center;
+        mat-label{
+            font-size: 5vh;
+            font-weight: bold;
+        }
+        #lastWeek{
+            width: 40%;
+            p{
+                font-size: 2vh !important;
+                width: 100%;
+                text-align: center;
+            }
+        }  
+    }
+    .addDay{
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        height: 4vh;
+        align-items: center;
+    }
+    .detailDay{
+        display: flex; justify-content: space-between;
+    }
+    .infoDay{
+        height: fit-content;
+        max-height: 60vh;
+        overflow: auto;
+        padding: 5vh 0;
+        .line{
+            display: flex; flex-direction: column; width: 100%; padding: 2vh 0;
+            align-items: center; height: 9vh; justify-content: space-between;
+        }
+        mat-label{
+            font-size: 3vh;
+            line-height: 3vh;
+        }
+        .serieInput{
+            font-size: 3vh;
+            line-height: 3vh;
+        }
+    }
+    .tabsDay{
+        display: flex; justify-content: center; width: 70%; height: 90vh; position: relative;
+        .mat-tab-group{
+            padding: 1vh;
+            padding-bottom: 4vh;
+            border-radius: 4px;
+            border: 2px solid var(--text-color-2);
+            box-shadow: rgb(0,0,0) 1px 1px,rgba(0,0,0,0.8) 2px 2px,rgba(0,0,0,0.6) 3px 3px,rgba(0,0,0,0.4) 4px 4px,rgb(0,0,0,0.2) 5px 5px !important;    
+            max-width: 90% !important;
+        }
+    }
+    .divDay{
+        display: flex; flex-direction: column; width: 100%; padding-top: 5vh;
+    }
+    mat-icon{
+        transition: all 200ms;
+        transform: scale(1);
+        height: 3vh;
+        width: 3vh;
+        font-size: 3vh;
+        cursor: pointer;
+        &:hover{
+            color: var(--blue);
+            transform: scale(1.15);
+        }
+    }
+    button{
+        font-size: 3vh;
+    }
+}
+
+::ng-deep .planToday{
+    .mat-tab-label .mat-tab-label-content{
+        color: var(--text-color-2) !important;
+        font-size: 3vh !important;
+    }
+    .mat-tab-header-pagination-chevron{
+        border-color: var(--text-color-2);
+    }
+}
+p{
+    font-size: 3vh !important;
+}
+.serieInput{
+    width: 50%;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    background-color: var(--text-color-2); 
+    color: var(--text-color-1); 
+    border-radius: 4px;
+    box-shadow: rgb(0,0,0) 1px 1px,rgba(0,0,0,0.8) 2px 2px,rgba(0,0,0,0.6) 3px 3px,rgba(0,0,0,0.4) 4px 4px,rgb(0,0,0,0.2) 5px 5px !important;
+    caret-color: var(--text-color-1);
+} 
+.serieInput::selection{
+    color: var(--dark-yellow);
+}
+////////////////////////////////    Planning    ////////////////////////////////
+.planning{
+    position: relative;
+    padding: 20vh 0;
+    background: linear-gradient(rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), url("../../assets/planning.jpg");
+    background-size: cover !important;
+    background-attachment: fixed;
+    color: var(--text-color-2);
+    padding-bottom: 5vh;
+    .title{
+        left: auto;
+        right: 5%;
+    }
+}
+::ng-deep .planning{
+    .mat-tab-label .mat-tab-label-content{
+        color: var(--text-color-1) !important;
+        font-size: 3vh !important;
+    }
+    .mat-tab-header-pagination-chevron{
+        border-color: var(--text-color-1);
+    }
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    cursor: move;
+    font-size: 14px;
+    height: 20vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    width: 90%;
+    border-radius: 4px;
+    transition: all 200ms;
+    box-shadow: rgb(0,0,0) 1px 1px,rgba(0,0,0,0.8) 2px 2px,rgba(0,0,0,0.6) 3px 3px,rgba(0,0,0,0.4) 4px 4px,rgb(0,0,0,0.2) 5px 5px !important;    
+    // &:hover{
+    //     transform: scale(1.15);
+    // }
+    mat-label{
+        font-size: 3vh;
+        line-height: 4vh;
+    }
+    .serieInput{
+        font-size: 3vh;
+        line-height: 3vh;
+    }
+}
+.list {
+    min-height: 50vh;
+    width: 21vw;
+    background: transparent;
+    color: var(--text-color-2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.box:nth-child(even){  
+    background: var(--text-color-1);
+    color: var(--text-color-2);
+}
+.box:nth-child(odd){
+    background: rgba(25,25,25,0.7);
+    color: var(--text-color-1);
+}
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+.list.cdk-drop-list-dragging .box:not(.drop-custom-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+.drop-custom-placeholder {
+    background: #ccc;
+    border: dotted 3px #999;
+    min-height: 60px;
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.hebdo{
+    padding: 20vh 0;
+    button{
+        font-size: 3vh;
+    }
+    .dragAndDropDivs{
+        display: flex; width: 100%; justify-content: space-around; height: 60vh;
+        h2{
+            font-size: 4vh;
+            height: 10vh;
+        }
+        #exercices{
+            border-radius: 4px;
+            border: 2px solid var(--text-color-2);        
+            padding: 8% 0%;
+            box-shadow: rgb(0,0,0) 1px 1px,rgba(0,0,0,0.8) 2px 2px,rgba(0,0,0,0.6) 3px 3px,rgba(0,0,0,0.4) 4px 4px,rgb(0,0,0,0.2) 5px 5px !important;    
+            height: 50vh;
+        }
+    }
+    #dragAndDropExercice{
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .heightMatFormField{
+            height: 10vh;
+            font-size: 4vh;
+            mat-form-field{
+                line-height: 4vh;
+                margin-top: -1em;
+            }
+        }
+    }
+    #boxSelectExercice{
+        display: flex; justify-content: center; font-weight: bold;
+        p{
+            display: flex;
+            align-items: center;
+            height: 100%;
+            font-size: 2vh !important;
+            justify-content: center;
+        }
+    }
+}
+::ng-deep .container{
+    .mat-form-field-infix{
+        display: flex;
+    }
+    .mat-icon-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1em;
+        height: 1em;
+        color: var(--text-color-2);
+    }
+
+    .mat-focused .mat-form-field-label {
+        color: var(--text-color-2) !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: transparent !important;
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: transparent !important;
+    }
+
+    .mat-form-field.mat-focused {
+        mat-placeholder{
+            color: var(--blue) !important;
+        }
+        .mat-form-field-underline {
+            /*change color of underline*/
+            background-color: transparent;
+        } 
+        .mat-input-element{
+            color: var(--blue) !important;
+            caret-color: var(--blue);
+        }
+        .mat-icon-button{
+            color: var(--blue) !important;
+        }
+    }
+}
+
+.plan{
+    display: flex; 
+    width: 70%;
+    height: fit-content;
+    overflow-x: auto; 
+    .titleDay{
+        display: flex; justify-content: center; width: 21vw;
+    }
+    #noScroll{
+        padding: 10% 0;
+        max-height: 50vh; overflow: auto; width: 100%;
+        border-radius: 4px;
+        border: 2px solid var(--text-color-2);   
+        box-shadow: rgb(0,0,0) 1px 1px,rgba(0,0,0,0.8) 2px 2px,rgba(0,0,0,0.6) 3px 3px,rgba(0,0,0,0.4) 4px 4px,rgb(0,0,0,0.2) 5px 5px !important;     
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+    .boxContainer{
+        display: flex; flex-direction: column; width: 100%; height: 100%; align-items: center; position: relative;
+        .topBoxContainer{
+            margin-top: 4vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; width: 75%; text-align: center; height: 40%; position: relative;
+            mat-label{
+                display: flex; align-items: center; width: 100%; justify-content: center; font-weight: bold;
+            }
+        }
+        mat-icon{
+            display: flex;
+            justify-content: flex-end;
+            cursor: pointer;
+            position: absolute;
+            top: 2%;
+            right: 2%;
+            transition: all 200ms;
+            transform: scale(1);
+            &:hover{
+                transform: scale(1.15);
+                color: var(--blue);
+            }
+        }
+        .bodyBoxContainer{
+            display: flex; text-align: center; height: 60%; align-items: center; justify-content: space-evenly; width: 100%;
+            mat-label{
+                width: 40%;
+            }
+            input{
+                width: 40%;
+            }
+        }
+    }
+}
+.plan::-webkit-scrollbar{
+    display: none;
+}
+
+.detailMuscles{
+    display: flex; justify-content: space-around; width: 100%; height: 60vh; margin-top: 30vh;
+}
+.usedMuscles{
+    height: 100%; width: 40%;
+    h2{
+        display: flex; justify-content: center; width: 100%;
+    }
+    mat-tab-group{
+        padding: 1vh;
+        padding-bottom: 4vh;
+        border-radius: 4px;
+        margin-top: 2vh;
+        border: 2px solid var(--text-color-2);
+        box-shadow: rgb(0,0,0) 1px 1px,rgba(0,0,0,0.8) 2px 2px,rgba(0,0,0,0.6) 3px 3px,rgba(0,0,0,0.4) 4px 4px,rgb(0,0,0,0.2) 5px 5px !important;    
+        background-color: transparent;
+        .lineMuscle{
+            display: flex; width: 100%; color: var(--text-color-1);
+            .containerLineMuscle{
+                display: flex; width: 100%; height: 10vh;
+                #name{
+                    display: flex; justify-content: center; align-items: center; width: 50%;
+                    mat-label{
+                        font-weight: bold;
+                        font-size: 3vh;
+                        line-height: 4vh;
+                    }
+                }
+                #serie{
+                    display: flex; flex-direction: column; justify-content: center; align-items: center; width: 50%; color: var(--text-color-2);
+                    mat-label{
+                        font-size: 3vh;
+                        line-height: 4vh;
+                    }
+                    .serieInput{
+                        font-size: 3vh;
+                        line-height: 3vh;
+                    }
+                }
+            }
+        }
+    }
+}
+::ng-deep .usedMuscles{
+    .mat-tab-label .mat-tab-label-content{
+        color: var(--text-color-2) !important;
+        font-size: 3vh !important;
+    }
+    .mat-tab-header-pagination-chevron{
+        border-color: var(--text-color-2);
+    }
+}
+
+.savePlanning{
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+    height: 20%;
+    button{
+        width: 30%;
+        background-color: transparent;
+        color: var(--text-color-2);
+        transform: scale(1);
+        transition: all 200ms;
+        &:hover{
+            color: var(--blue);
+            transform: scale(1.15);
+            background: transparent !important;
+        }
+    }
+}
+
+::ng-deep .mat-button .mat-button-focus-overlay {
+    background-color: transparent;
+}
+
+
+
+
+::ng-deep .actions{
+    width: 100%;
+
+    .mat-focused .mat-form-field-label {
+        color: white !important;
+    }
+
+    .mat-input-element {
+        caret-color: white !important;
+    }
+
+    .mat-input-element::selection {
+        background-color: grey !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: white;
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: white !important;
+    }
+
+    .mat-form-field.mat-focused {
+        .mat-form-field-infix {
+            background: linear-gradient(rgba(204,198,52, 0.4), rgba(204,198,52, 0.4));
+        }
+        .mat-input-element::selection{
+            background-color: var(--background-color-2) !important;
+        }
+    }
+}
+
+
+::ng-deep .mat-autocomplete-panel, ::ng-deep .mat-select-panel{
+    background-color: var(--text-color-1);
+}
+::ng-deep .mat-autocomplete-panel::-webkit-scrollbar, ::ng-deep .mat-select-panel::-webkit-scrollbar{
+    display: none;             /* width of the entire scrollbar */
+}
+::ng-deep .mat-select-arrow{
+    color: white !important;
+}
+
+::ng-deep .mat-ink-bar{
+    background-color: var(--text-color-2) !important;
+}
+
+.container {
+    width: 25vw;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+  
+
+
+// mat-tree-node{
+//     display: flex;
+//     align-items: center;
+//     width: 20vw;
+//     background: var(--text-color-2);
+//     color: var(--light-yellow);
+// }
+
+@media screen and (max-width: 600px){
+    .navBar{
+        mat-icon{
+            font-size: 3vh;
+            height: 3vh;
+            width: 3vh;
+        }
+        .userAndDate{
+            width: 70%;
+        }
+        form{
+            mat-form-field{
+                width: 25vw;
+            }
+        }
+        button{
+            margin: 0;
+        }
+    }
+    .title{
+        font-size: 5vh;
+    }
+    .planning{
+        display: none;
+    }
+    .today{
+        padding: 15vh 0;
+    }
+    .planToday{
+        flex-direction: column;
+        height: 100vh;
+        padding: 25vh 0;
+        .planToday1{
+            width: 95%;
+            height: 20%;
+        }
+        .tabsDay{
+            display: flex;
+            justify-content: center;
+            width: 95%;
+            height: 90vh;
+            position: relative;
+            margin: 10vh;
+        }
+    }
+    
+    .actionsDay{
+        flex-direction: column-reverse;
+        margin-bottom: 5vh;
+    }
+}

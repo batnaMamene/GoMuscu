@@ -1,0 +1,461 @@
+////////////////////////////////    Navbar    ////////////////////////////////
+.navBar{
+    display: flex; align-items: center; height: 15vh; width: 100%;
+    position: fixed;
+    background: var(--text-color-2) ;
+    z-index: 5;
+    top: 0;
+    border-bottom: 1px solid var(--light-yellow);
+    .inside{
+        display: flex; justify-content: flex-end;
+        width: 100%;
+    }
+    button{
+        margin-left: 10%;
+        margin-right: 10%;
+        color: var(--text-color-1);
+        transition: all 600ms;
+        &:hover{
+            color: var(--light-yellow);
+        }
+    }
+    .datePicker, .paramsForm{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding-top: 1.25em;
+        width: 25%;
+    }
+    mat-icon{
+        font-size: 5vh;
+        height: 5vh;
+        width: 5vh;
+    }
+}
+////////////////////////////////    Calculateur    ////////////////////////////////
+#calculateur{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    padding-top: 20vh;
+    background-size: cover !important;
+    color: white;
+    background:  linear-gradient(rgba(25,25,25,0.7),rgba(25,25,25,0.7)), url("../../assets/calculateur_background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 15vh;
+    position: relative;
+}
+.title{
+    display: flex;
+    position: absolute;
+    left: 5%;
+    font-size: 10vh;
+    line-height: 10vh;
+    color: rgba(255,255,255, 0.7);
+}
+.subtitle{
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+    font-size: 4vh;
+    line-height: 4vh;
+    color: rgba(255,255,255, 0.7);
+}
+::ng-deep .datePicker, ::ng-deep .paramsForm{
+    .mat-form-field-infix{
+        display: flex;
+    }
+    .mat-icon-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1em;
+        height: 1em;
+        color: var(--text-color-1);
+    }
+    .mat-form-field-infix{
+        border-radius: 10px 10px 0 0;
+    }
+
+    .mat-focused .mat-form-field-label {
+        color: white !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: white;
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: var(--light-yellow) !important;
+    }
+
+    .mat-form-field.mat-focused {
+        mat-placeholder{
+            color: var(--light-yellow) !important;
+        }
+        .mat-form-field-underline {
+            /*change color of underline*/
+            background-color: transparent;
+        } 
+        .mat-input-element{
+            color: var(--light-yellow) !important;
+        }
+        .mat-icon-button{
+            color: var(--light-yellow) !important;
+        }
+    }
+}
+////////////////////////////////    DatePicker style    ////////////////////////////////
+::ng-deep .mat-calendar-body-today{
+    background-color: rgba(255,255,255, 0.2) !important;
+    border: 0 !important;
+}
+::ng-deep .mat-calendar-body-selected {
+    color: var(--light-yellow) !important;
+}
+::ng-deep .mat-calendar-body-cell:hover .mat-calendar-body-cell-content{
+    color: var(--light-yellow) !important;
+    background-color: transparent !important;
+}
+::ng-deep .mat-calendar-body-cell-content, ::ng-deep .mat-calendar-table-header, ::ng-deep .mat-calendar-controls, ::ng-deep .mat-calendar-controls button {
+    color: var(--text-color-1) !important;
+}
+::ng-deep.mat-datepicker-content{
+    background: rgba(0, 0, 0, 0.8);
+}
+::ng-deep.mat-datepicker-content .mat-calendar{
+    height: fit-content !important;
+    tr{
+        height: fit-content !important;
+    }
+}
+::ng-deep .mat-datepicker-toggle-default-icon{
+    height: 1em;
+    width: 1em;
+}
+////////////////////////////////    Autocomplete style    ////////////////////////////////
+::ng-deep .mat-autocomplete-panel{
+    background-color: transparent;
+}
+::ng-deep .mat-autocomplete-panel::-webkit-scrollbar {
+    display: none;             /* width of the entire scrollbar */
+}
+.mat-option{
+    color: var(--text-color-1);
+    &:hover{
+        color: var(--light-yellow) !important;
+    }
+}
+.mat-option.mat-selected{
+    background-color: var(--text-color-2) !important;
+    color: var(--light-yellow) !important;
+}
+////////////////////////////////    Ajout d'aliments/dépenses et formulaire d'ajout    ////////////////////////////////
+.resultCalculateur{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    .allLignes{
+        overflow: auto;
+        max-height: 100vh;
+        height: 60%;
+        width: 50%;
+    }
+    ligne-infos{
+        display: flex;
+        width: 100%;
+        height: 40vh;
+        margin-bottom: 2vh;
+    }
+    form{
+        width: 30%;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .buttonAdd{
+            display: flex;
+            justify-content: center;
+            width: 50%;
+        }
+        .quantity{
+            display: flex;
+            flex-direction: column;
+
+        }
+    }    
+}
+.allLignes{
+    overflow: auto;
+    max-height: 100vh;
+    width: 60%;
+}
+.ligneInfos{
+    display: flex;
+    width: 100%;
+    height: 40vh;
+    margin-bottom: 2vh;
+}
+.allLignes::-webkit-scrollbar{
+    display: none;
+}
+.add{
+    background-color: transparent;
+    transform: scale(1);
+    transition: all 200ms;
+    &:hover{
+        background-color:var(--light-yellow);
+        color: var(--text-color-2);
+        transform: scale(1.15);
+    }
+}
+.add[disabled]{
+    &:hover{
+        background-color:var(--red);
+        transform: scale(0.85);
+    }
+}
+////////////////////////////////    Valeur nutritionnelle journée    ////////////////////////////////
+.objList{
+    width: 75%;
+    padding-bottom: 20%;
+}
+
+////////////////////////////////    Calculateur recette    ////////////////////////////////
+.recette{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh;
+    width: 100vw;
+    background-size: cover !important;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../../assets/recette.jpg");
+    background-attachment: fixed;
+}
+.detailRecette{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .line{
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        color: white;
+        padding-top: 2%;
+        p{
+            display: flex;
+            align-items: flex-end;
+        }
+        .valueAndUnit{
+            display: flex;
+            align-items: flex-end;
+            width: 15%;
+            justify-content: flex-start;
+        }
+        .value{
+            font-size: 4vh;
+            line-height: 4vh;
+        }
+    }
+}
+
+.actions{
+    display: flex;
+    height: 20vh;
+    align-items: center;
+}
+
+.table{
+    width: 100%;
+    max-height: 50vh;
+}
+
+h2{
+    margin: 0;
+}
+
+.mat-select {
+    width: 12vw !important;
+    background-color: white !important;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    span{
+        text-align: center;
+    }
+}
+
+.ligneDepense{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mat-card-avatar{
+    height: 100px !important;
+    width: 100px !important;
+}
+
+::ng-deep input::placeholder{
+    color: white !important;
+}
+
+::ng-deep .select{
+    .mat-select-value{
+        margin-left: 1vw !important;
+    }
+}
+
+input{
+    text-align: center !important;
+}
+
+
+::ng-deep .actions,::ng-deep .recetteForm{
+    .mat-form-field-infix{
+        border-radius: 10px 10px 0 0;
+    }
+
+    .mat-focused .mat-form-field-label {
+        color: white !important;
+    }
+
+    .mat-input-element {
+        caret-color: white !important;
+    }
+
+    .mat-input-element::selection {
+        background-color: grey !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: white;
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: white !important;
+    }
+
+    .mat-form-field.mat-focused {
+        .mat-form-field-infix {
+            background: rgba(70,74,82, 0.4);
+            border-radius: 10px 10px 0 0;
+        }
+        .mat-input-element::selection{
+            background-color: var(--background-color-2) !important;
+        }
+    }
+}
+
+.recetteForm{
+    width: 50%;
+}
+
+.headerTab{
+    border-radius: 10px;
+    max-height: 70vh; 
+    overflow: auto;
+    margin-bottom: 10vh;
+}
+.headerTab::-webkit-scrollbar{
+    display: none;
+}
+::ng-deep .panelObj{
+    background-color: transparent;
+    margin-bottom: 10vh;
+    mat-expansion-panel{
+        background-color: var(--text-color-2);
+        margin-bottom: 2vh;
+        margin-top: 2vh;
+    }
+    mat-expansion-panel-header{
+        background-color: transparent !important;
+    }
+    .mat-expansion-panel-header-title{
+        color: var(--text-color-1);
+    }
+    .mat-expansion-indicator::after{
+        color: var(--text-color-1) !important;
+    }
+}
+.listObj{
+    display: flex;
+    flex-direction: column;
+}
+.progressBar{
+    height: 1.9vh;
+    width: 100%;
+}
+
+@media screen and (max-width:600px){
+    .navBar{
+        height: 30vh;
+        .inside{
+            display: grid;
+            grid-template-columns: repeat(2, 2fr);
+        }
+        .datePicker,.paramsForm{
+            width: 100%;
+        }
+    }
+    #reverse{
+        flex-direction: column-reverse;
+        margin: 0;
+    }
+    .resultCalculateur{
+        flex-direction: column;
+        margin-top: 5vh;
+        height: fit-content;
+        max-height: 90vh;
+        .allLignes{
+            width: 90%;
+            display: flex;
+        }
+        ligne-infos{
+            margin: 0;
+        }
+        
+        form{
+            margin: 15vh 0;
+            flex-direction: column;
+            mat-form-field{
+                width: 35vw;
+            }
+            .quantity{
+                flex-direction: row;
+                width: 100vw;
+                justify-content: space-around;
+            }
+            .buttonAdd{
+                display: flex;
+                justify-content: end;
+                width: 90vw;
+            }
+        }
+    }
+    .objList{
+        padding: 20% 0;
+    }
+    .allLignes{
+        height: auto;
+        width: 90%;
+    }
+    .title{
+        font-size: 5vh;
+        align-items: center;
+    }
+    
+}

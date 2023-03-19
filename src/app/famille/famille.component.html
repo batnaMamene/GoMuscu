@@ -1,0 +1,57 @@
+<app-wait *ngIf="!show && !error"></app-wait>
+<app-error *ngIf="error"></app-error>
+<div *ngIf="show" class="navBar">
+  <div class="inside">
+      <button id="add" mat-button (click)="addFamille()">
+        <mat-icon matTooltip="Ajouter un nouvel aliment">fiber_new</mat-icon>
+      </button>
+      
+      <button mat-button routerLink="/home">
+          <mat-icon  matTooltip="Retour à l'accueil">home</mat-icon> 
+      </button>
+  </div>
+</div>
+<div class="background" *ngIf="allFamilles.length > 0">
+    <h1 class="title">Groupes musculaires</h1>
+
+    <mat-card style="display: none;"></mat-card>
+    <div class="container">
+        <div class="expansion">
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelBas = true"
+                (closed)="panelBas = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Haut du corps
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <mat-list>
+                    <mat-list-item (click)="setSelect(famille.name)" [class.select]="famille.select" *ngFor="let famille of haut">
+                      <img mat-card-avatar [src]="famille.image">
+                      <div class="name">{{famille.name}}</div>
+                    </mat-list-item>
+                  </mat-list>
+                </mat-expansion-panel>
+                <mat-expansion-panel (opened)="panelHaut = true"
+                                      (closed)="panelHaut = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Bas du corps
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <mat-list>
+                    <mat-list-item (click)="setSelect(famille.name)" [class.select]="famille.select" *ngFor="let famille of bas">
+                      <img mat-card-avatar [src]="famille.image">
+                      <div class="name">{{famille.name}}</div>
+                    </mat-list-item>
+                  </mat-list>
+                </mat-expansion-panel>
+              </mat-accordion>
+        </div>
+        <div [@displayCard]="display" class="imageFamille">
+            <img [routerLink]="['/show-famille',name]" [src]="schema">
+        </div>
+    </div>
+</div>
+
+<dialog-box *ngIf="openDialogBox"></dialog-box>

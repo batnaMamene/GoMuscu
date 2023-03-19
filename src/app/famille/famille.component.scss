@@ -1,0 +1,144 @@
+.navBar{
+    display: flex; align-items: center; height: 15vh; width: 100%;
+    position: fixed;
+    background: var(--text-color-1) ;
+    z-index: 5;
+    top: 0;
+    border-bottom: 1px solid var(--text-color-2);
+    .inside{
+        display: flex; justify-content: space-around;
+        width: 100%;
+    }
+    button{
+        margin-left: 10%;
+        margin-right: 10%;
+        color: var(--text-color-2);
+        transition: all 600ms;
+        &:hover{
+            background-color: white !important;
+            color: var(--blue);
+        }
+    }
+    mat-icon{
+        font-size: 5vh;
+        height: 5vh;
+        width: 5vh;
+    }
+}
+.title{
+    display: flex;
+    position: absolute;
+    left: 5%;
+    font-size: 10vh;
+    line-height: 10vh;
+    color: rgba(25,25,25, 0.7);
+}
+.background{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 25vh 0;
+    color: var(--text-color-2);
+    background: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url("../../assets/grp_musculaire.jpg");
+    background-size: cover !important;
+    background-attachment: fixed;
+    .container{
+        display: flex; justify-content: space-around; width: 100%; height: 110vh;
+        .expansion{
+            height: 100%; width: 36%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .imageFamille{
+            display: flex; flex-direction: column; justify-content: center; align-items: center; width: 40%;
+            img{
+                cursor: pointer;
+                width: 55vmin;
+                transform: scale(1);
+                transition: all 200ms;
+                &:hover{
+                    transform: scale(1.15);
+                }
+            }
+        }
+    }
+}
+.blackAndYellowButton{
+    background-color: var(--text-color-2);
+    color: var(--text-color-1);
+    font-weight: bold;
+    cursor: pointer !important;
+    transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+.blackAndYellowButton:hover{
+  background-color: var(--light-yellow);
+  color: var(--text-color-2) !important;
+  box-shadow: var(--darken-yellow) -1px 1px, var(--darken-yellow) -2px 2px, var(--darken-yellow) -3px 3px;
+  transform: translate3d(3px, -3px, 0);
+       
+       transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+::ng-deep .expansion{
+    background-color: transparent;
+    margin-bottom: 10vh;
+    mat-expansion-panel{
+        background-color: var(--text-color-2);
+        margin-bottom: 2vh;
+        margin-top: 2vh;
+    }
+    mat-expansion-panel-header{
+        background-color: transparent !important;
+    }
+    .mat-expansion-panel-header-title{
+        color: var(--text-color-1);
+    }
+    .mat-expansion-indicator::after{
+        color: var(--text-color-1) !important;
+    }
+    .mat-expansion-panel-body{
+        padding: 0 !important;
+    }
+    mat-list-item{
+        cursor: pointer;
+        transform: scale(1);
+    }
+    mat-list-item:hover{
+        transform: scale(1.15);
+        background-color: var(--light-yellow);
+        .mat-list-item-content{
+            color: var(--text-color-2);
+        }
+        font-weight: bold;
+        
+        transition-delay: 0s;
+            transition-duration: 0.4s;
+            transition-property: all;
+        transition-timing-function: line;
+    }
+    .mat-list-item-content{
+        display: flex !important;
+        padding: 0 !important;
+        justify-content: space-between !important;
+        width: 25vw !important;
+        color: var(--text-color-1);
+    }
+}
+
+
+.name{
+    width: 13vw;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mat-list-base{
+    width: 25vw;
+}
+
+.mat-card-avatar{
+    margin-left: 2vw;
+}

@@ -1,0 +1,27 @@
+<h2 class="title">
+    Ajouter une dépense
+</h2>
+<div class="body">
+    <form [formGroup]="formGroup" (ngSubmit)="addDepense()">
+        <div class="containerFormField">
+            <mat-form-field hideRequiredMarker="true">
+                <input autocomplete="off" type="text" formControlName="name" matInput>
+                <mat-placeholder [ngStyle]="{'color': formGroup.get('name')?.errors != null ? 'var(--red)' : 'white'}">Sport *</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <div class="containerFormField">
+            <mat-form-field hideRequiredMarker="true">
+                <input autocomplete="off" type="text" matInput formControlName="met">
+                <mat-placeholder [ngStyle]="{'color': formGroup.get('met')?.errors != null ? 'var(--red)' : 'white'}">MET *</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <div class="containerFormField">
+            <div class="uploadWrapper">
+                <p>{{name}}</p>
+                <input type="file" autocomplete="off" formControlName="img" (change)="setImage($event)">
+            </div>
+        </div>
+        <button class="blackAndYellowButton" type="submit" mat-button [disabled]="formGroup.invalid">Terminer</button>        
+    </form>
+</div>
+

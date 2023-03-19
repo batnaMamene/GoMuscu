@@ -1,0 +1,16 @@
+<app-wait *ngIf="!show && !error"></app-wait>
+<app-error *ngIf="error"></app-error>
+<div *ngIf="show" class="background">
+    <div style="display: flex; justify-content: flex-end; align-items: flex-end; height: 5vh; width: 97%; margin-top: 1vh;">
+        <button style="cursor: pointer;" matTooltip="Ajouter un muscle dans ce groupe musculaire" mat-button class="link" (click)="add()">
+            <mat-icon>add</mat-icon>
+        </button>
+        <button mat-button style="cursor: pointer;" matTooltip="Modifier ce groupe musculaire" class="link" (click)="edit()">
+            <mat-icon>edit_attributes</mat-icon>
+        </button>
+        <button mat-button style="cursor: pointer;" matTooltip="Retourner à l'accueil" class="link" routerLink="/home">
+            <mat-icon>home</mat-icon> 
+        </button>
+    </div>
+</div>
+<app-muscle-details *ngIf="show" [famille]="famille" [exercices]="exercices"></app-muscle-details>

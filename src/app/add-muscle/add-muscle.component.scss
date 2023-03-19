@@ -1,0 +1,55 @@
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    background-color: var(--text-color-2);
+    color: var(--light-yellow);
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+}
+
+
+.form{
+    display: flex;
+    align-items: center;
+    height: 65%;
+}
+
+
+::ng-deep .form{
+    .mat-form-field-infix{
+        background: rgba(127,124,33,0.4);
+    }
+
+    .mat-form-field.mat-focused {
+        .mat-form-field-infix {
+            background: rgba(25,25,25, 0.4);
+        }
+        .mat-input-element::selection{
+            background-color: var(--background-color-2) !important;
+        }
+    }
+
+    .mat-focused .mat-form-field-label {
+        color: var(--text-color-2) !important;
+    }
+
+    .mat-input-element {
+        caret-color: var(--text-color-2) !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: var(--text-color-2);
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: var(--text-color-2) !important;
+    }
+}

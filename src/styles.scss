@@ -1,1 +1,332 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Commissioner&family=Explora&family=Mukta:wght@600&family=Nunito:wght@300&family=Pacifico&display=swap');//////////////////////////////////////////  Variable //////////////////////////////////////////
+:root {
+    --background-color-1: rgb(44,52,70);
+    --background-color-2: rgb(70,74,82);
+    --light-yellow: rgb(255,248,66);
+    --yellow: rgb(204,198,52);
+    --dark-yellow: rgb(152,150,77);
+    --darken-yellow: rgb(127,124,33);
+    --text-yellow: rgb(64,62,16);
+    --text-color-1: white;
+    --text-color-2: rgb(25,25,25);
+    --red: #FB667A;
+    --blue: 	#4249ff;
+}
+
+
+//////////////////////////////////////////  Text //////////////////////////////////////////
+h1,h2,h3,h4,p{
+  margin: 0 !important;
+}
+h1,h2{
+  font-family: 'Commissioner', sans-serif !important;
+}
+h3,h4,p,mat-label,span,td,th,.mat-input-element,.mat-tooltip,.mat-tab-label,label,button{
+  font-family: 'Nunito', sans-serif !important;
+}
+.red {
+  color: var(--red);
+}
+html, body { height: 100%; }
+body { margin: 0; overflow-x: hidden !important;}
+::selection{
+    background-color: var(--background-color-1);
+}
+.serieInput{
+  width: 50%;
+  padding-left: 1vh;
+  padding-right: 1vh;
+  background-color: var(--text-color-2); 
+  color: var(--light-yellow); 
+  border-radius: 10px;
+  caret-color: var(--light-yellow);
+}
+
+.serieInput::selection{
+  color: var(--dark-yellow);
+}
+
+
+
+
+//////////////////////////////////////////  Scrollbar //////////////////////////////////////////
+::-webkit-scrollbar {
+  width: 12px;   
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color-1);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--light-yellow);
+  border-radius: 20px;
+  border: 3px solid var(--background-color-1);
+}
+
+body::-webkit-scrollbar{ display: none;}
+
+@media screen and (max-width: 600px){
+  ::-webkit-scrollbar {
+    display: none;
+  } 
+}
+
+
+
+
+
+
+
+//////////////////////////////////////////  Button //////////////////////////////////////////
+button{
+  cursor: pointer !important;
+}
+.yellowAndBlackButton{
+  background-color: transparent;
+    color: var(--text-color-2);
+    font-weight: bold;
+    cursor: pointer !important;
+    transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+.yellowAndBlackButton:hover{
+  background-color: var(--text-color-2);
+  color: var(--text-color-1);
+  box-shadow: var(--darken-yellow) 1px -1px, var(--darken-yellow) 2px -2px, var(--darken-yellow) 3px -3px, var(--darken-yellow) 4px -4px, var(--darken-yellow) 5px -5px, var(--darken-yellow) 6px -6px;
+       transform: translate3d(-6px, 6px, 0);
+       
+       transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+.yellowButton{
+  background-color: var(--light-yellow);
+  color: var(--text-color-2);
+  font-weight: bold;
+  cursor: pointer !important;
+  transition-delay: 0s;
+       transition-duration: 0.4s;
+       transition-property: all;
+     transition-timing-function: line;
+}
+.yellowButton:hover{
+  box-shadow: var(--darken-yellow) -1px 1px, var(--darken-yellow) -2px 2px, var(--darken-yellow) -3px 3px, var(--darken-yellow) -4px 4px, var(--darken-yellow) -5px 5px, var(--darken-yellow) -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+  transition-timing-function: line;
+}
+
+.blackButton,.blackAndYellowButton{
+    background-color: var(--text-color-2);
+    color: var(--text-color-1);
+    font-weight: bold;
+    cursor: pointer !important;
+    transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+
+.blackAndYellowButton:hover{
+  background-color: var(--light-yellow);
+  color: var(--text-color-2);
+  box-shadow: var(--darken-yellow) -1px 1px, var(--darken-yellow) -2px 2px, var(--darken-yellow) -3px 3px, var(--darken-yellow) -4px 4px, var(--darken-yellow) -5px 5px, var(--darken-yellow) -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+       
+       transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+
+.blackButton:hover{
+       box-shadow: var(--background-color-2) -1px 1px, var(--background-color-2) -2px 2px, var(--background-color-2) -3px 3px, var(--background-color-2) -4px 4px, var(--background-color-2) -5px 5px, var(--background-color-2) -6px 6px;
+       transform: translate3d(6px, -6px, 0);
+       
+       transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+
+.link{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+
+  transition-delay: 0s;
+   transition-duration: 0.4s;
+   transition-property: all;
+ transition-timing-function: line;
+}
+
+.link:hover{
+  background-color: #FFF842;
+ color: #403E10;
+ font-weight: bold;
+ 
+ box-shadow: var(--darken-yellow) -1px 1px, var(--darken-yellow) -2px 2px, var(--darken-yellow) -3px 3px, var(--darken-yellow) -4px 4px, var(--darken-yellow) -5px 5px, var(--darken-yellow) -6px 6px;
+ transform: translate3d(6px, -6px, 0);
+ 
+ transition-delay: 0s;
+   transition-duration: 0.4s;
+   transition-property: all;
+ transition-timing-function: line;
+}
+
+
+
+
+
+//////////////////////////////////////////  Tables //////////////////////////////////////////
+td,th{
+  text-align: center;
+  width: 10vw;
+  cursor: pointer;
+}
+
+tr{
+    height: 7vh;
+}
+
+.blackTab{
+
+  /* Background-color of the odd rows */
+  tr:nth-child(odd) {
+      background-color: #323C50;
+  }
+
+  /* Background-color of the even rows */
+  tr:nth-child(even) {
+      background-color: #2C3446;
+  }
+
+  th{
+      background-color: #1F2739;
+  }
+  tr:hover {
+      background-color: #464A52;
+   -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+   }
+   
+  td:hover {
+     background-color: #FFF842;
+     color: var(--text-yellow);
+     font-weight: bold;
+     
+     box-shadow: var(--darken-yellow) -1px 1px, var(--darken-yellow) -2px 2px, var(--darken-yellow) -3px 3px, var(--darken-yellow) -4px 4px, var(--darken-yellow) -5px 5px, var(--darken-yellow) -6px 6px;
+     transform: translate3d(6px, -6px, 0);
+     
+     transition-delay: 0s;
+       transition-duration: 0.4s;
+       transition-property: all;
+     transition-timing-function: line;
+  }
+}
+
+
+.yellowTab{
+    /* Background-color of the odd rows */
+    tr:nth-child(odd) {
+      background-color: var(--dark-yellow);
+  }
+
+  /* Background-color of the even rows */
+  tr:nth-child(even) {
+      background-color: var(--darken-yellow);
+  }
+
+  th{
+      background-color: var(--text-yellow);
+  }
+
+  .red {
+      color: #FB667A;
+  }
+
+  tr:hover {
+      background-color: var(--yellow);
+  -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+      -moz-box-shadow: 0 6px 6px -6px #0E1119;
+          box-shadow: 0 6px 6px -6px #0E1119;
+  }
+
+  td:hover {
+    background-color: var(--text-color-2);
+    color: var(--light-yellow);
+    font-weight: bold;
+
+    box-shadow: var(--background-color-2) -1px 1px, var(--background-color-2) -2px 2px, var(--background-color-2) -3px 3px, var(--background-color-2) -4px 4px, var(--background-color-2) -5px 5px, var(--darken-yellow) -6px 6px;
+    transform: translate3d(6px, -6px, 0);
+
+    transition-delay: 0s;
+        transition-duration: 0.4s;
+        transition-property: all;
+    transition-timing-function: line;
+  }
+}
+
+
+//////////////////////////////////////////  Angular Material //////////////////////////////////////////
+.mat-dialog-container{
+    padding: 0 !important;
+    background-color: var(--light-yellow) !important;
+}
+
+.mat-bottom-sheet-container{
+  background-color: var(--text-color-2) !important;
+}
+
+
+//////////////////////////////////////////  Animations //////////////////////////////////////////
+.fade-in{
+  background: black !important;
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  from{
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lineAnim{
+  height: 2px;
+  width: 100%;
+  position: relative;
+  margin: 5vh 0;
+  &::after{
+      content: "";
+      position: absolute;
+      background-color: var(--light-yellow);
+      width: 15%;
+      height: 100%;
+      left: -15%;
+      animation: lineAnim 7s linear infinite;
+  }
+}
+
+@keyframes lineAnim {
+  0% {left: -15%;}
+  100% {left: 100%;}
+}
+

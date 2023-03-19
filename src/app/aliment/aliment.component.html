@@ -1,0 +1,59 @@
+<div class="all">
+    <h2 class="title">
+        Ajouter un Aliment
+    </h2>
+    <div class="body">
+        <form [formGroup]="formGroup" (ngSubmit)="addAliment()" class="form">
+            <div class="containerFormField">
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" type="text" formControlName="name" matInput>
+                    <mat-placeholder [ngStyle]="{'color': formGroup.get('name')?.errors != null ? 'var(--red)' : 'white'}">Aliment *</mat-placeholder>
+                </mat-form-field>
+            </div>
+            <div class="containerFormField">
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" type="text" formControlName="type" matInput>
+                    <mat-placeholder [ngStyle]="{'color': formGroup.get('type')?.errors != null ? 'var(--red)' : 'white'}">Type *</mat-placeholder>
+                </mat-form-field>
+            </div>
+            <div class="containerFormField">
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" type="text" formControlName="proteines" matInput>
+                    <mat-placeholder [ngStyle]="{'color': formGroup.get('proteines')?.errors != null ? 'var(--red)' : 'white'}">Protéines *</mat-placeholder>
+                </mat-form-field>    
+            </div>
+            <div class="containerFormField">
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" type="text" formControlName="glucides" matInput>
+                    <mat-placeholder [ngStyle]="{'color': formGroup.get('glucides')?.errors != null ? 'var(--red)' : 'white'}">Glucides *</mat-placeholder>
+                </mat-form-field>    
+            </div>
+            <div class="containerFormField">
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" type="text" formControlName="lipides" matInput>
+                    <mat-placeholder [ngStyle]="{'color': formGroup.get('lipides')?.errors != null ? 'var(--red)' : 'white'}">Lipides *</mat-placeholder>
+                </mat-form-field>    
+            </div>
+            <div class="containerFormField">
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" type="text" formControlName="calories" matInput>
+                    <mat-placeholder [ngStyle]="{'color': formGroup.get('calories')?.errors != null ? 'var(--red)' : 'white'}">Calories *</mat-placeholder>
+                </mat-form-field>    
+            </div>
+            <div class="containerFormField">
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" type="text" formControlName="fibres" matInput>
+                    <mat-placeholder [ngStyle]="{'color': formGroup.get('fibres')?.errors != null ? 'var(--red)' : 'white'}">Fibres *</mat-placeholder>
+                </mat-form-field>    
+            </div>
+            <div class="containerFormField">
+                <mat-form-field hideRequiredMarker="true">
+                    <input autocomplete="off" type="text" formControlName="IG" matInput>
+                    <mat-placeholder [ngStyle]="{'color': formGroup.get('IG')?.errors != null ? 'var(--red)' : 'white'}">Index glycémique *</mat-placeholder>
+                </mat-form-field>
+        
+            </div>    
+            <button class="blackAndYellowButton" type="submit" mat-button [disabled]="formGroup.invalid">Terminer</button>        
+        </form>
+    </div>    
+</div>

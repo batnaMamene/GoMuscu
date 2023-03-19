@@ -1,0 +1,89 @@
+<h2 class="title">
+    Ajouter un Exercice
+</h2>
+<div class="body">
+    <form [formGroup]="firstFormGroup" (ngSubmit)="add()">
+        <div class="line">
+            <div class="bodyPart">
+                <div class="containerFormField">
+                    <mat-form-field hideRequiredMarker="true">
+                        <input autocomplete="off" type="text" formControlName="name" matInput>
+                        <mat-placeholder [ngStyle]="{'color': firstFormGroup.get('name')?.errors != null ? 'var(--red)' : 'white'}">Exercice *</mat-placeholder>
+                    </mat-form-field>
+                </div>
+                <div class="containerFormField">
+                    <mat-form-field hideRequiredMarker="true">
+                        <input (input)="filterFamille($event)" type="text" class="auto" [matAutocomplete]="auto" matInput formControlName="famille">
+                        <mat-placeholder [ngStyle]="{'color': firstFormGroup.get('famille')?.errors != null ? 'var(--red)' : 'white'}">Famille de muscle *</mat-placeholder>
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of allFamilleFiltered" [value]="option.name">
+                            {{option.name}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <div class="containerFormField">
+                    <div class="uploadWrapper">
+                        <p>{{name}}</p>
+                        <input type="file" autocomplete="off" formControlName="image" (change)="setImage($event)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lineAnim"></div>
+        <div class="line">
+            <h2 class="subtitle">Muscles ciblés</h2>
+            <div class="buttonAdd">
+                <div *ngIf="primary.length === 1"></div>
+                <mat-icon *ngIf="primary.length > 1" (click)="decrement('primary')" >minimize</mat-icon>
+                <mat-icon (click)="increment('primary')" >add</mat-icon>
+            </div>
+            <div class="bodyPart">
+                <div class="containerFormField" *ngFor="let muscle of primary; index as i;">
+                    <mat-form-field>
+                        <input (input)="filter($event,i)" [value]="primary[i]" type="text" class="auto" matInput [matAutocomplete]="auto">
+                        <mat-placeholder style="color: white">Muscle ciblé</mat-placeholder>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="setValue($event,'primary',i)">
+                            <mat-option *ngFor="let option of allMuscleFiltered[i]" [value]="option.name">
+                            {{option.name}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field> 
+                </div>
+            </div>
+        </div>
+        
+        <div class="lineAnim"></div>
+
+        <div class="line">
+            <h2 class="subtitle">Muscles utilisés</h2>
+            <div class="buttonAdd">
+                <div *ngIf="secondary.length === 1"></div>
+                <mat-icon *ngIf="secondary.length > 1" (click)="decrement('secondary')" >minimize</mat-icon>
+                <mat-icon (click)="increment('secondary')" >add</mat-icon>
+            </div>
+            <div class="bodyPart">
+                <div class="containerFormField" *ngFor="let muscle of secondary; index as i;"> 
+                    <mat-form-field>
+                        <input (input)="filter($event,i)" [value]="secondary[i]" type="text" class="auto" matInput [matAutocomplete]="auto">
+                        <mat-placeholder style="color: white;">Muscle utilisé</mat-placeholder>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="setValue($event,'secondary',i)">
+                            <mat-option *ngFor="let option of allMuscleFiltered[i]" [value]="option.name">
+                            {{option.name}}
+                            </mat-option>
+                        </mat-autocomplete>                    
+                    </mat-form-field> 
+                </div>
+            </div>
+        </div>
+        
+        <div class="lineAnim"></div>
+        
+        <div class="footer">
+            <button type="submit" mat-button class="blackAndYellowButton">Terminer</button>
+        </div>
+    </form>
+    
+</div>
+
+

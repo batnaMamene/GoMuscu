@@ -1,0 +1,322 @@
+<div class="alimentation">
+
+    <div #muscleButton id="addCal" [@linkAnimations2]="linkAnimations[2]"  (click)="add('activité')" class="blackAndYellowButton link">
+        <h1>Ajouter une dépense</h1>
+    </div>
+
+    <div routerLink="/calculateur" class="blackAndYellowButton link" id="cal" #muscleButton [@linkAnimations1]="linkAnimations[0]">
+        <h1>Calculateur</h1>
+    </div>
+
+    <div class="title">
+        Alimentation
+    </div>
+      
+    <div #roundImg class="objList">
+        <mat-accordion class="panelObj">
+            <mat-expansion-panel (opened)="panelObj = true"
+            (closed)="panelObj = false">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Total calorique
+                </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="listObj">
+                <div class="grades">
+                    <grades [note]="calculateur.calories" [noteMax]="objectifs.calories" [unit]="'kCal'"></grades>
+                </div>
+                    <progress-bar class="progressBar"
+                        [pourcentage]="calculateur.calories / objectifs.calories"
+                    ></progress-bar>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    
+        <mat-accordion class="panelObj">
+            <mat-expansion-panel (opened)="panelObj = true"
+            (closed)="panelObj = false">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Total protéines
+                </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="listObj">
+                <div class="grades">
+                    <grades [note]="calculateur.proteines" [noteMax]="objectifs.proteines" [unit]="'g'"></grades>
+                </div>
+                    <progress-bar class="progressBar"
+                        [pourcentage]="calculateur.proteines / objectifs.proteines"
+                    ></progress-bar>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    
+        <mat-accordion class="panelObj">
+            <mat-expansion-panel (opened)="panelObj = true"
+            (closed)="panelObj = false">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Total lipides
+                </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="listObj">
+                <div class="grades">
+                    <grades [note]="calculateur.lipides" [noteMax]="objectifs.lipides" [unit]="'g'"></grades>
+                </div>
+                    <progress-bar class="progressBar"
+                        [pourcentage]="calculateur.lipides / objectifs.lipides"
+                    ></progress-bar>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    
+        <mat-accordion class="panelObj">
+            <mat-expansion-panel (opened)="panelObj = true"
+            (closed)="panelObj = false">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Total glucides
+                </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="listObj">
+                <div class="grades">
+                    <grades [note]="calculateur.glucides" [noteMax]="objectifs.glucides" [unit]="'g'"></grades>
+                </div>
+                    <progress-bar class="progressBar"
+                        [pourcentage]="calculateur.glucides / objectifs.glucides"
+                    ></progress-bar>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    
+        <mat-accordion class="panelObj">
+            <mat-expansion-panel (opened)="panelObj = true"
+            (closed)="panelObj = false">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Total fibres
+                </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="listObj">
+                <div class="grades">
+                    <grades [note]="calculateur.fibres" [noteMax]="30" [unit]="'g'"></grades>
+                </div>
+                    <progress-bar class="progressBar"
+                        [pourcentage]="calculateur.fibres / 30"
+                    ></progress-bar>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+    <div class="Paragraphe">
+        <h1>Suivi de l'alimentation</h1>
+        <br>
+        <p>
+            Vous  culpabilisez lorsque vous mangez une pâtisserie entre les repas ? <br>
+            Vous attrapez votre ventre en maudissant la pizza que vous venez d'ingérer ? <br>
+            L'outil de calcul et de suivi alimentaire est là pour vous rassurer. 
+            <br> <br>
+            Définissez un profil utilisateur et l'outil vous calcule vos besoins caloriques ainsi que vos apports en protéines, fibres, glucides et lipides.
+            <br>
+            Vous verrez, vous avez droit à bien plus de liberté que ce que vous pensez. Laissez-vous donc souffler.
+        </p>
+    </div>
+
+    <div (click)="add('aliment')" class="blackAndYellowButton link" id="addAl" #muscleButton [@linkAnimations1]="linkAnimations[3]" >
+        <h1>Ajouter un aliment</h1>
+    </div>
+
+    <div routerLink="/suivi" class="blackAndYellowButton link" id="sui" #muscleButton [@linkAnimations2]="linkAnimations[1]" >
+        <h1>Suivi</h1>
+    </div>
+</div>
+
+<div class="musculation">
+
+        <div id="exo" #muscleButton [@linkAnimations2]="linkAnimations[4]" routerLink="/exercice" class="blackAndYellowButton link">
+            <h1>Liste des exercices</h1>
+        </div>
+
+        <div id="addExo" #muscleButton [@linkAnimations1]="linkAnimations[5]" (click)="add('exercice')" class="blackAndYellowButton link">
+            <h1>Ajouter un exercice</h1>
+        </div>
+
+        <div class="Paragraphe">
+            <h1>Suivi musculation</h1>
+            <br>
+            <p>
+                S'inscrire à la salle de sport et s'y rendre régulièrement c'est bien. <br>
+                Savoir les exercices qu'on va y faire et pourquoi on les fait, c'est mieux <br>
+                Avec les différents articles à disposition, découvrez les bases de l'anatomie afin de mieux connaître votre corps
+                <br> <br>
+                Vous serez alors à-même de construire un programme équilibré et qui vous correspond, tout en pouvant l'adapter en fonction de vos sensations.
+                <br><br>
+                En travaillant régulièrement ET intelligemment, la progression n'est pas une option mais une certitude.
+            </p>
+        </div>
+
+        <div class="objList" #roundImg id="bottom" *ngIf="todayPlanning.length > 0">
+            <mat-tab-group mat-align-tabs="start">
+                <mat-tab *ngFor="let exo of todayPlanning" [label]="exo.name">
+                    <div style="display: flex; flex-direction: column; width: 100%;">
+                        <div style="display: flex; justify-content: space-between;" *ngFor="let detail of exo.details">
+                            <div style="display: flex; flex-direction: column; width: 100%; align-items: center; height: 100%; justify-content: center;">
+                                <mat-label>Charge</mat-label>
+                                <mat-label class="serieInput">{{detail.charge}}</mat-label>
+                            </div>
+                            <div style="display: flex; flex-direction: column; width: 100%; align-items: center; height: 100%; justify-content: center;">
+                                <mat-label>Répétition</mat-label>
+                                <mat-label class="serieInput">{{detail.repetition}}</mat-label>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        
+
+        <h1 class="title">
+            Musculation
+        </h1>
+
+        <div routerLink="/planning" class="blackAndYellowButton link" id="plan" #muscleButton [@linkAnimations1]="linkAnimations[6]" >
+            <h1>Planning</h1>
+        </div>
+
+        <div id="fam" #muscleButton [@linkAnimations2]="linkAnimations[7]" routerLink="/famille" class="blackAndYellowButton link">
+            <h1>Familles de muscle</h1>
+        </div>    
+</div>
+
+<!-- <div class="phone">
+    <h1 class="title">Calculateur             <fa-icon routerLink="/calculateur" [icon]="calculatorIcon"></fa-icon>
+    </h1>
+    <div style="display: flex; width: 100%; justify-content: center; margin-bottom: 5vh;">
+        <div class="objList">
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Total calorique
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="grades">
+                        <grades [note]="calculateur.calories" [noteMax]="objectifs.calories" [unit]="'kCal'"></grades>
+                    </div>
+                        <progress-bar class="progressBar"
+                            [pourcentage]="calculateur.calories / objectifs.calories"
+                        ></progress-bar>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Total protéines
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="grades">
+                        <grades [note]="calculateur.proteines" [noteMax]="objectifs.proteines" [unit]="'g'"></grades>
+                    </div>
+                        <progress-bar class="progressBar"
+                            [pourcentage]="calculateur.proteines / objectifs.proteines"
+                        ></progress-bar>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Total lipides
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="grades">
+                        <grades [note]="calculateur.lipides" [noteMax]="objectifs.lipides" [unit]="'g'"></grades>
+                    </div>
+                        <progress-bar class="progressBar"
+                            [pourcentage]="calculateur.lipides / objectifs.lipides"
+                        ></progress-bar>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Total glucides
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="grades">
+                        <grades [note]="calculateur.glucides" [noteMax]="objectifs.glucides" [unit]="'g'"></grades>
+                    </div>
+                        <progress-bar class="progressBar"
+                            [pourcentage]="calculateur.glucides / objectifs.glucides"
+                        ></progress-bar>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        
+            <mat-accordion class="panelObj">
+                <mat-expansion-panel (opened)="panelObj = true"
+                (closed)="panelObj = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Total fibres
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="listObj">
+                    <div class="grades">
+                        <grades [note]="calculateur.fibres" [noteMax]="30" [unit]="'g'"></grades>
+                    </div>
+                        <progress-bar class="progressBar"
+                            [pourcentage]="calculateur.fibres / 30"
+                        ></progress-bar>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+    
+    
+    <h1 class="title">
+        Planning             <fa-icon routerLink="/planning" [icon]="planningIcon"></fa-icon>
+    </h1>
+
+    <div style="display: flex; width: 100%; justify-content: center; margin-bottom: 2vh;">
+        <div style="width: 75%; height: 35vh; background-color: var(--light-yellow);">
+            <mat-tab-group mat-align-tabs="start" style="height: 90%;">
+                <mat-tab *ngFor="let exo of todayPlanning" [label]="exo.name">
+                    <div style="display: flex; flex-direction: column; width: 100%;">
+                        <div style="display: flex; justify-content: space-between;" *ngFor="let detail of exo.details">
+                            <div style="display: flex; flex-direction: column; width: 100%; align-items: center; height: 100%; justify-content: center;">
+                                <mat-label style="color: rgb(25,25,25);">Charge</mat-label>
+                                <mat-label class="serieInput">{{detail.charge}}</mat-label>
+                            </div>
+                            <div style="display: flex; flex-direction: column; width: 100%; align-items: center; height: 100%; justify-content: center;">
+                                <mat-label style="color: rgb(25,25,25);">Répétition</mat-label>
+                                <mat-label class="serieInput">{{detail.repetition}}</mat-label>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    
+</div> -->
+
+<dialog-box *ngIf="openDialogBox"></dialog-box>

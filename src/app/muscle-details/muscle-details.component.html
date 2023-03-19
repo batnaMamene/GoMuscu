@@ -1,0 +1,274 @@
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 15vh; width: 100%;">
+    <h1 class="title">{{famille.name}}</h1>
+</div>
+<div class="article" *ngIf="famille.name === 'Biceps'">
+    <h2 class="subtitle">Anatomie</h2>
+    <div class="description">
+        <div class="image" style="margin-left: 5vw;">
+            <img id="img" src="../../assets/biceps/Biceps_long_court.png">
+            <div style="height: 2vh;"></div>
+            <div style="width: 100%; display: flex; align-items: center; height: 5vh;">
+                <div class="line" style="margin-left: 5%;"></div>
+                <p style="text-align: center; font-size: 2vh; width: 60%;margin-left: 5% !important;">Schéma des muscles du biceps</p>
+                <div class="line" style="margin-left: 5%;"></div>
+            </div>
+        </div>
+        <div class="infoDescription">
+            <div class="borderWhite" style="height: 20vh; flex-direction: column; justify-content: center; width: 80%;">
+                <p style="width: 80%;">Le biceps brachial est un muscle divisé en deux parties:</p>
+                <ul style="width: 80%;">
+                    <li><p>Le chef long, se situant sur l'extérieur du biceps</p></li>
+                    <li><p>Le chef court, se situant sur l'intérieur</p></li>
+                </ul>
+            </div>
+            <br>
+            <div class="borderWhite" style="height: 15vh; width: 80%;">
+                <p style="width: 80%;">                
+                    Ces deux chefs s'insèrent au niveau de la scapula (voir schéma) par deux tendons différents, puis ils vont converger afin de former un tendon qui va s'insérer sur le haut de l'avant-bras. 
+                </p>
+            </div>
+        <br>
+            <div class="borderWhite" style="height: 20vh; width: 80%;">
+                <p style="width: 80%;">                
+                    Même s'il ne fait pas partie du biceps, le muscle Brachial ne doit surtout pas être négligé.
+                    Il est en effet situé sous le biceps et va plus le faire ressortir à mesure de l'augmentation de son du volume.
+                    Il s'insère quant à lui en haut de l'humérus et juste à la sortie du coude sur l'avant-bras. 
+                </p>
+            </div>
+        </div>
+        <div class="image" style="margin-right: 5vw;">
+            <img id="img" src="../../assets/biceps/Biceps_brachial.png">
+            <div style="height: 2vh;"></div>
+            <div style="width: 100%; display: flex; align-items: center; height: 5vh;">
+                <div class="line" style="margin-left: 5%;"></div>
+                <p style="text-align: center; font-size: 2vh; width: 60%;margin-left: 5% !important;">Schéma du brachial</p>
+                <div class="line" style="margin-left: 5%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lineAnim"></div>
+
+    <div class="scapula">
+
+        <div style="display: flex; flex-direction: column; width: 30%; height: 70vh; justify-content: center; align-items: center; margin-top: 10vh; margin-bottom: 10vh;">
+            <img style="height: 40vh; width: fit-content;" src="../../assets/biceps/scapula.png">
+            <div style="height: 10vh;"></div>
+            <img style="height: 20vh; width: fit-content;" src="../../assets/biceps/valgus.jpg">
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; width: 55%; margin-top: 10vh; margin-bottom: 10vh;">
+            <div class="borderWhite" style="height: 15vh; width: 80%;">
+                <p style="width: 80%;">
+                    La scapula, ou omoplate, est coloriée en rouge sur l'image de gauche. 
+                    Cette articulation est extrêmement importante en générale, puisque beaucoup de groupes musculaires y sont attachés, et en particuliers ici car les deux chefs du biceps y sont reliés.    
+                </p>
+            </div>
+            <br>
+            <div class="borderWhite" style="height: 15vh; width: 80%; margin-left: 20%;">
+                <p style="width: 80%;">
+                    Sur le schéma de droite, on observe avec les différents points importants de l'articulation de l'omoplate.
+                    Le tendon du chef court vient s'insérer dans le processus coracoïde (Coracoid process en anglais) tandis que le chef long vient s'insérer dans le tubercule supraglénoïdal (le point rouge du gif).            
+                </p>
+            </div>
+            <br>
+            <div class="borderWhite" style="height: 15vh; width: 80%;">
+                <p style="width: 80%;">
+                    Ainsi le chef long va avoir sa première insertion en haut de l'épaule, dans l'axe de l'humérus.
+                    Grossièrement le chef court va l'avoir sur le côté intérieur de l'épaule, vers la clavicule, et donc pas dans l'axe de l'humérus (ce n'est pas exactement ça mais c'est pour visualiser).
+                </p>
+            </div>
+            <br>
+            <div class="borderWhite" style="height: 15vh; width: 80%; margin-left: 20%;">
+                <p style="width: 80%;">
+                    Afin d'appliquer un maximum de force sur le biceps, il faut prendre en compte l'angle entre l'humérus et l'avant-bras qui est appelé valgus (voir photo de gauche).
+                    Il faut que l'axe de l'humérus soit perpendiculaire au sol selon l'axe y (de bas en haut) et donc prendre en compte uniquement cet axe et pas la position de la main.
+                </p>
+            </div>
+        </div>
+        
+
+        <div class="image" style="width: 30%; margin-top: 10vh; margin-bottom: 10vh;">
+            <img style="height: 40vh; width: fit-content;" src="../../assets/biceps/scapula.jpg">
+            <div style="height: 10vh;"></div>
+            <img style="height: 20vh;" src="../../assets/biceps/tubercule_supraglenoidale.gif">
+        </div>
+    </div>
+    
+    <div class="lineAnim" style="margin: 0;"></div>
+
+    <div class="fibre">
+        <h2 class="subtitle" style="margin-bottom: 0 !important; background-color: transparent; color: var(--text-color-2);">Mouvements</h2>
+
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <div style="width: 40%; display: flex; justify-content: center;">
+                <img style="width: 60%;" src="../../assets/biceps/test.png">
+            </div>
+            <div class="borderBlack" style="width: 50%;">
+                <p style="width: 80%;">
+                    Les fibres musculaires sont mises à contribution lors du mouvement de flexion du bras, les fibres musculaires ont donc une trajectoire de bas vers le haut.
+                    Comme ce groupe musculaire ne s'occupe presque qu'exclusivement que de ce mouvement de flexion, tous les exercices pour le travailler vont jouer sur cette flexion.
+                    Il n'y a donc que des exercices à forte tension de contraction dans ce groupe musculaire.
+                    <br>
+                    <br>
+                    Aussi comme chacun des muscles du groupe musculaire sont sollicités pendant ce mouvement, il est impossible d'en cibler un seul sans travailler les autres.
+                    Cependant, il est possible de mettre l'accent sur un muscle en jouant sur l'axe de l'humérus et donc l'éloignement de ses deux insertions
+                </p>
+            </div>
+        </div>
+
+        <div style="width: 100%; display: flex; justify-content: space-around;">
+            <div style="display: flex; justify-content: center; width: 50%; height: 20vh; align-items: center;">
+                <img style="height: 100%;" src="../../assets/biceps/curl.png">
+                <div class="borderBlack" style="width: 60%; height: 15vh; margin-left: 2.5vw !important;">
+                    <p style="width: 80%;">                
+                        Les muscles du biceps vont être sollicités au maximum en prise supination, cette prise éloignant l'insertion de l'avant-bras des insertions de la scapula
+                    </p>
+                </div>
+                
+            </div>
+            <br>
+            <div style="display: flex; justify-content: center; width: 50%; height: 20vh; align-items: center;">
+                <div class="borderBlack" style="width: 60%; height: 15vh; margin-right: 2.5vw !important;">
+                    <p style="width: 80%;">                
+                        Le muscle brachial lui va être lui travaillé avec une prise pronation, l'insertion de l'avant-bras s'éloignant de celle de l'humérus.
+                    </p>
+                </div>
+                <img style="height: 100%;" src="../../assets/biceps/pronation.png">
+            </div>
+        </div>
+
+        <div style="width: 100%; display: flex; justify-content: space-around; align-items: center;">
+            <div  class="borderBlack" style="display: flex; width: 25%; height: 20vh; align-items: center;">
+                <p style="width: 80%;">
+                    Afin d'étirer au maximum le chef long du biceps, on va reculer l'humérus par rapport au corps. 
+                    Les deux insertion étant dans le même axe, on va veiller à garder l'humérus le long du corps au maximum.
+                </p>
+            </div>
+            <br>
+            <div class="borderBlack" style="display: flex; width: 25%; height: 25vh; align-items: center;">
+                <p style="width: 80%;">
+                    Pour mieux étirer le chef court, il va falloir à l'inverse avancer l'humérus mais également l'écarter un tout petit peu du corps, donc déplacer l'humérus sur l'axe x.
+                    Il faut cependant se placer en veillant à garder l'humérus perpendiculaire au sol sur l'axe y.           
+                </p>
+            </div>
+            <div class="borderBlack" style="display: flex; width: 25%; height: 30vh; align-items: center;">
+                <p style="width: 80%;">
+                    Enfin l'étirement du brachial est indépendant de la position de l'humérus par rapport au corps étant donné que celui-ci ne compte aucune de ses inserstion.
+                    Il faut alors éloigner la partie antérieure de l'avant-bras de la partie antiérieure de l'humérus, ce qui est possible avec une prise pronation.
+                    Il faut évidemment garder l'humérus perpendiculaire au sol sur l'axe y. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="lineAnim" style="margin: 0;"></div>
+
+    <h2 class="subtitle">Les exercices</h2>
+    <div class="exercices">
+        <div class="exo" *ngFor="let exo of exercices">
+            <h3 class="part">{{exo.name}}</h3>
+            <div style="display: flex; width: 100%; justify-content: space-around; height: 20vh;">
+                <img [src]="exo.image">
+                <div class="borderWhite" style="display: flex; flex-direction: column; height: 20vh; width: 20%">
+                    <p style="display: flex; align-items: flex-end; justify-content: flex-start; width: 80%; height: 5vh; font-size: 3vh;">Muscles ciblés:</p>
+                    <ul style="display: flex; align-items: flex-start; flex-direction: column; width: 80%; height: 15vh;">
+                       <li *ngFor="let pri of exo.primary"><p>{{pri}}</p></li> 
+                    </ul>
+                </div>
+                <div class="borderWhite" style="display: flex; flex-direction: column; height: 20vh; width: 20%">
+                    <p style="display: flex; align-items: flex-end; justify-content: flex-start; width: 80%; height: 5vh; font-size: 3vh;">Travaille aussi:</p>
+                    <ul style="display: flex; align-items: flex-start; flex-direction: column; width: 80%; height: 15vh;">
+                       <li *ngFor="let sec of exo.secondary"><p>{{sec}}</p></li>
+                    </ul>
+                </div>
+                <div style="height: 100%; display: flex; align-items:center;">
+                    <button mat-button style="border: 2px solid var(--light-yellow); height: 30%; width: 10vw;" [routerLink]="['/exercice', exo.name]" class="blackAndYellowButton">
+                        Détails
+                    </button>
+                </div>
+            </div>
+            <div class="lineAnim"></div>
+        </div>
+        <!-- <div class="borderWhite" style="height: 30vh; width: 80%">
+            <p style="width: 90%;">
+                L'exercice de base pour travailler le biceps est évidemment le curl, qui consiste au mouvement de flexion du bras tout en portant de la charge.
+                Il changer la position de son humérus ou bien modifier sa prise afin de cibler es différentes partie du groupe musculaire, ce qui fait énormément de variantes.
+                On peut tout aussi bien utiliser des haltères, une poulie ou une barre comme charge, du moment que les principes sont respectés les resultats suivront.
+                <br>
+                Cependant, je conseille d'effectuer des mouvements unilatéraux, c'est à dire un bras à la fois, afin de mieux maîtriser les trajectoires.
+                C'est pourquoi je vais surtout évoquer des exercices à la poulie ou aux haltères, mais pas à la barre car il est impossible de gérer tous les paramètres.
+            </p>
+        </div>
+
+        <div class="exo">
+            <h3 class="part">Curl aux haltères sur banc incliné</h3>
+            <div style="display: flex; width: 100%; justify-content: space-around;">
+                <img src="../../assets/biceps/curl__banc_incliné.jpg">
+                <div class="borderWhite" style="width: 60%;">
+                    <p style="width: 90%">
+                        Relèver légèrement le banc, afin qu’il ne soit pas parallèle au sol mais qu’il y ait un angle d’environ 30 degrés, puis se positionner sur le dos.
+                        On laisse les bras se faire emporter par l'haltère afin qu’ils soient déportés vers l’arrière par rapport au corps et perpendiculaire au sol.
+                        <br>
+                        Garder le bras légèrement fléchi en début de mouvement afin de garder de la tension.
+                        Ensuite remonter légèrement l'humérus selon l'axe y afin de garder une tension même au début du mouvement.
+                        <br>
+                        Enfin fléchir le bras, en gardant l'épaule et le coude le plus fixe possible, et contrôler la redescente (prendre 2 secondes pour redescendre et monter le plus vite possible à condition de bien effctuer le mouvement).
+                    </p>
+                </div>
+                <div style="height: 100%; display: flex; align-items:center;">
+                    <button mat-button style="border: 2px solid var(--light-yellow); height: 30%; width: 10vw;" routerLink="exercices:/curl_banc_incliné" class="blackAndYellowButton">
+                        Détails
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="exo">
+            <h3 class="part">Spider curl unilatéral</h3>
+            <div style="display: flex; width: 100%; justify-content: space-around;">
+                <img src="../../assets/biceps/curl__banc_incliné.jpg">
+                <div class="borderWhite" style="width: 60%;">
+                    <p style="width: 90%">
+                        Relèver légèrement le banc, afin qu’il ne soit pas parallèle au sol mais qu’il y ait un angle d’environ 30 degrés, puis se positionner sur le ventre.
+                        On laisse les bras se faire emporter par l'haltère afin qu’ils soient déportés vers l'avant par rapport au corps et perpendiculaire au sol.
+                        <br>
+                        Garder le bras légèrement fléchi en début de mouvement afin de garder de la tension.
+                        Ensuite remonter légèrement l'humérus selon l'axe y afin de garder une tension même au début du mouvement.
+                        <br>
+                        Enfin fléchir le bras, en gardant l'épaule et le coude le plus fixe possible, et contrôler la redescente (prendre 2 secondes pour redescendre et monter le plus vite possible à condition de bien effctuer le mouvement).
+                    </p>
+                </div>
+                <div style="height: 100%; display: flex; align-items:center;">
+                    <button mat-button style="border: 2px solid var(--light-yellow); height: 30%; width: 10vw;" routerLink="exercices:/spider_curl_unilatéral" class="blackAndYellowButton">
+                        Détails
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="exo">
+            <h3 class="part">Spider curl unilatéral</h3>
+            <div style="display: flex; width: 100%; justify-content: space-around;">
+                <img src="../../assets/biceps/curl__banc_incliné.jpg">
+                <div class="borderWhite" style="width: 60%;">
+                    <p style="width: 90%">
+                        Relèver légèrement le banc, afin qu’il ne soit pas parallèle au sol mais qu’il y ait un angle d’environ 30 degrés, puis se positionner sur le ventre.
+                        On laisse les bras se faire emporter par l'haltère afin qu’ils soient déportés vers l'avant par rapport au corps et perpendiculaire au sol.
+                        <br>
+                        Garder le bras légèrement fléchi en début de mouvement afin de garder de la tension.
+                        Ensuite remonter légèrement l'humérus selon l'axe y afin de garder une tension même au début du mouvement.
+                        <br>
+                        Enfin fléchir le bras, en gardant l'épaule et le coude le plus fixe possible, et contrôler la redescente (prendre 2 secondes pour redescendre et monter le plus vite possible à condition de bien effctuer le mouvement).
+                    </p>
+                </div>
+                <div style="height: 100%; display: flex; align-items:center;">
+                    <button mat-button style="border: 2px solid var(--light-yellow); height: 30%; width: 10vw;" routerLink="exercices:/curl_prise_pronation" class="blackAndYellowButton">
+                        Détails
+                    </button>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+</div>

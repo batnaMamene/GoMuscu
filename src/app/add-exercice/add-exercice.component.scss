@@ -1,0 +1,239 @@
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background-color: var(--light-yellow);
+    color: var(--text-color-2);
+}
+.body{
+    width: 70vw;
+    height: 40vh;
+    overflow: auto;
+    background-color: var(--text-color-2);
+    color: var(--text-color-1);
+    padding-bottom: 25vh;
+    form{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        height: 100%;
+        .bodyPart{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            width: 100%;
+            height: 100%;
+        }
+        .subtitle{
+            color: var(--light-yellow);
+            font-size: 2.5vh;
+            padding-left: 5%;
+        }
+        .buttonAdd{
+            width: 100%; display: flex; justify-content: space-around;
+        }
+        .containerFormField{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .line{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 15vh;
+        }
+        button[disabled]{
+            color: var(--darken-yellow);
+        }
+        button[disabled]:hover{
+            background-color: transparent;
+            color: var(--red) !important;
+            font-weight: bold;
+            
+            box-shadow: var(--background-color-2) 0px 0px, var(--background-color-2) 0px 0px, var(--background-color-2) 0px 0px, var(--background-color-2) 0px 0px, var(--background-color-2) 0px 0px, var(--background-color-2) 0px 0px;
+            transform: translate3d(0, 0, 0);
+            
+            transition-delay: 0s;
+                transition-duration: 0.4s;
+                transition-property: all;
+            transition-timing-function: line;
+        }
+        button{
+            color: var(--text-color-1);
+            margin-left: 2%;
+            width: 30vw;
+        }    
+    }
+}
+.lineAnim{
+    height: 2px;
+    width: 100%;
+    position: relative;
+    margin: 5vh 0;
+    &::after{
+        content: "";
+        position: absolute;
+        background-color: var(--light-yellow);
+        width: 15%;
+        height: 100%;
+        left: -15%;
+        animation: lineAnim 7s linear infinite;
+    }
+}
+.lineAnim:nth-child(2){
+    &::after{
+        animation-delay: 3.2s;
+    }
+}
+.lineAnim:nth-child(3){
+    &::after{
+        animation-delay: 1.6s;
+    }
+}
+@keyframes lineAnim {
+    0% {left: -15%;}
+    100% {left: 100%;}
+}
+
+::ng-deep .mat-step-header{
+    padding-right: 0 !important;
+    padding-left: 5vw !important;
+}
+::ng-deep mat-horizontal-stepper{
+    background-color: var(--text-color-2) !important;
+}
+::ng-deep .mat-step-icon{
+    background-color: var(--light-yellow) !important;
+    color: var(--text-color-2) !important;
+}
+::ng-deep .mat-horizontal-content-container{
+    padding: 0 !important;
+}
+
+::ng-deep form{
+    .mat-form-field-infix{
+        display: flex;
+    }
+    .mat-icon-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1em;
+        height: 1em;
+        color: var(--text-color-1);
+    }
+
+    .mat-focused .mat-form-field-label {
+        color: var(--text-color-1) !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: var(--text-color-1) !important;
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: var(--light-yellow) !important;
+    }
+
+    .mat-input-element{
+        color: var(--text-color-1) !important;
+    }
+
+    .mat-form-field.mat-focused {
+        mat-placeholder{
+            color: var(--light-yellow) !important;
+        }
+        .mat-form-field-underline {
+            /*change color of underline*/
+            background-color: transparent !important;
+        } 
+        .mat-input-element{
+            color: var(--light-yellow) !important;
+            caret-color: var(--light-yellow);
+        }
+        .mat-icon-button{
+            color: var(--light-yellow) !important;
+        }
+    }
+}
+
+.uploadWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 5vh;
+    background: var(--text-color-2);
+    color: var(--light-yellow);
+    border-radius: 2px;
+    width: 15vw;margin-bottom: 1.34375em;
+    cursor: pointer;
+    font-weight: bold;
+}
+.uploadWrapper input {
+    cursor: pointer !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    width: 15vw;
+    height: 5vh;
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    width: 97%;
+    padding-bottom: 5vh;
+}
+
+button{
+    background-color: var(--text-color-2);
+    color: var(--light-yellow);
+       font-weight: bold;
+}
+.blackAndYellowButton{
+    background-color: var(--text-color-2);
+    color: var(--text-color-1);
+    font-weight: bold;
+    cursor: pointer !important;
+    transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+.blackAndYellowButton:hover,.uploadWrapper:hover{
+  background-color: var(--light-yellow);
+  color: var(--text-color-2) !important;
+  box-shadow: var(--darken-yellow) -1px 1px, var(--darken-yellow) -2px 2px, var(--darken-yellow) -3px 3px;
+  transform: translate3d(3px, -3px, 0);
+       
+       transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+}
+
+mat-form-field,.btn-upload{
+    width: 15vw;
+}
+
+@media screen and (max-width: 600px){
+    .body{
+        width: 95vw;
+        mat-form-field{
+            width: 25vw;
+        }
+        form{
+            .bodyPart{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}

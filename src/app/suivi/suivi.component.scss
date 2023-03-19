@@ -1,0 +1,244 @@
+.navBar{
+    display: flex; align-items: center; height: 15vh; width: 100%;
+    position: fixed;
+    background: var(--text-color-2) ;
+    z-index: 5;
+    top: 0;
+    border-bottom: 1px solid var(--light-yellow);
+    .inside{
+        display: flex; justify-content: space-around;
+        width: 100%;
+    }
+    button{
+        margin-left: 10%;
+        margin-right: 10%;
+        color: var(--text-color-1);
+        transition: all 600ms;
+        &:hover{
+            color: var(--light-yellow);
+        }
+    }
+    mat-icon{
+        font-size: 5vh;
+        height: 5vh;
+        width: 5vh;
+    }
+}
+
+.suivi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    color: white;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("../../assets/suivi.jpg");
+    background-size: cover !important;
+    padding: 20vh 0;
+    position: relative;
+    margin-top: 15vh;
+    background-attachment: fixed;
+}
+.title{
+    display: flex;
+    position: absolute;
+    left: 5%;
+    top: 20vh;
+    font-size: 10vh;
+    line-height: 10vh;
+    color: rgba(255,255,255, 0.7);
+}
+
+.infos{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.params{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    form{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 80%;
+        height: 50%;
+        overflow: auto;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .saveParams{
+        position: relative;
+        width: 100%;
+        button{
+            position: absolute;
+            left: 60%;
+        }
+    }
+}
+.transparentYellowButton[enabled]{
+    color: var(--text-color-1);
+    background-color: transparent;
+    cursor: pointer !important;
+    transition-delay: 0s;
+         transition-duration: 0.4s;
+         transition-property: all;
+       transition-timing-function: line;
+    &:hover{
+        background-color: var(--text-color-2);
+        color: var(--light-yellow);
+        box-shadow: black -1px 1px, black -2px 2px, black -3px 3px;
+        transform: translate3d(3px, -3px, 0);
+        
+        transition-delay: 0s;
+            transition-duration: 0.4s;
+            transition-property: all;
+        transition-timing-function: line;
+    }
+}
+.transparentYellowButton[disabled]{
+    color: var(--red);
+    background-color: transparent;
+    cursor: pointer !important;
+}
+
+.graph{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+::ng-deep .mat-calendar-body-cell-content:hover, ::ng-deep .mat-calendar-body-today{
+    background-color: #cccccc !important;
+}
+
+::ng-deep .mat-calendar-body-selected {
+    background-color: black !important;
+}
+
+::ng-deep .mat-calendar-body-selected {
+    background-color: black !important;
+}
+::ng-deep.mat-datepicker-content .mat-calendar{
+    height: fit-content !important;
+    tr{
+        height: fit-content !important;
+    }
+}
+
+::ng-deep .mat-datepicker-toggle-default-icon{
+    height: 1em;
+    width: 1em;
+}
+
+.typeForm{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 8vh;
+}
+
+::ng-deep .params, ::ng-deep .typeForm{
+    .mat-form-field-infix{
+        display: flex;
+    }
+    .mat-icon-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1em;
+        height: 1em;
+        color: var(--text-color-1);
+    }
+    .mat-form-field-infix{
+        border-radius: 10px 10px 0 0;
+    }
+
+    .mat-focused .mat-form-field-label {
+        color: white !important;
+    }
+    
+    .mat-form-field-underline {
+        /*change color of underline*/
+        background-color: white;
+    } 
+    
+    .mat-form-field-ripple{
+        /*change color of underline when focused*/
+        background-color: var(--light-yellow) !important;
+    }
+
+    .mat-form-field.mat-focused {
+        mat-placeholder{
+            color: var(--light-yellow) !important;
+        }
+        .mat-form-field-underline {
+            /*change color of underline*/
+            background-color: transparent;
+        } 
+        .mat-input-element{
+            color: var(--light-yellow) !important;
+            caret-color: var(--light-yellow) !important;
+        }
+        .mat-icon-button{
+            color: var(--light-yellow) !important;
+        }
+    }
+}
+
+mat-form-field{
+    height: fit-content;
+    width: 12vw;
+}
+::ng-deep .mat-select-arrow{
+    color: white !important;
+}
+::ng-deep .mat-select.mat-select-invalid .mat-select-arrow{
+    color: var(--red) !important;
+}
+
+::ng-deep .mat-select-value{
+    color: white !important;
+}
+
+#graph{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#graphDiv{
+    width: 80%;
+}
+
+@media screen and (max-width: 600px){
+    .graph{
+        width: 100%;
+    }
+    .infos{
+        flex-direction: column;
+    }
+    .params{
+        width: 100%;
+        height: 60vh;
+        .saveParams{
+            left: auto;
+            right: 5%;
+        }
+    }
+    mat-form-field{
+        width: 25vw !important;
+    }
+    #graph{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    #graphDiv{
+        width: 75%;
+    }
+}

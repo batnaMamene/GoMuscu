@@ -1,0 +1,10 @@
+<form class="add" [formGroup]="formGroup" (ngSubmit)="edit()">
+    <mat-form-field>
+        <input autocomplete="off" matInput placeholder="Nom" formControlName="name" required>
+    </mat-form-field>
+
+    
+    <button type="submit" mat-button>Terminer</button>
+</form>
+
+

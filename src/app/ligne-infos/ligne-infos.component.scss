@@ -1,0 +1,115 @@
+#container{
+    height: 90%; width: 90%; border-radius: 4px;
+}
+
+#background{
+    display: flex;
+    align-items: center;
+    filter: brightness(1.3);
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#icon{
+    position: absolute;
+    font-size: 50px;
+    z-index: -1;
+}
+
+#delete{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: var(--text-color-2);
+}
+
+.top{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    height: 40%;
+    align-items: center;
+    color: black;
+}
+
+.title{
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.subtitle{
+    display: flex;
+    align-items: flex-end;
+    font-size: 20px;
+    font-weight: bold;
+    width: 3vw;
+    caret-color: var(--text-color-2);
+}
+
+.inside{
+    display: grid;
+    grid-template-columns: auto auto;
+    color: black;
+    height: 75%;
+    width: 90%;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+#backgroundDepense{
+    position: relative;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    background-size: cover !important;
+    color: var(--text-color-1);
+    #icon,#delete{
+        color: white;
+        z-index: 0;
+    }
+}
+
+.titleDepense{
+    font-size: 45px;
+    line-height: 45px;
+    z-index: 1;
+}
+
+.topDepense{
+    display: flex;
+    height: 50%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.insideDepense{
+    display: flex;
+    justify-content: space-evenly;
+    span,input{
+        z-index: 1;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .subtitle{
+        width: 10vw;
+    }
+    #icon{
+        font-size: 30px;
+    }
+    #container{
+        width: 85vw;
+        margin: 0 10vw;
+    }
+}
